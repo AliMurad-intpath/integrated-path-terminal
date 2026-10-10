@@ -60,7 +60,7 @@ function output(command,message,links=[]){
  entry.append(prompt,body);log.append(entry);while(log.children.length>4)log.firstElementChild.remove();log.hidden=false;log.scrollTop=log.scrollHeight;
 }
 function routeFor(raw){const key=raw.trim().toLowerCase().replace(/^~\/?/,'').replace(/^\.\//,'').replace(/^\/|\/$/g,'');if(['','..','index.html'].includes(key))return routes[0];return routes.find(r=>[r.key,r.file,r.path.replace(/\/$/,''),r.name.toLowerCase()].includes(key));}
-function siteURL(path){const url=new URL((isArabic?'ar/':'')+path.replace(/^\.\//,''),base);url.searchParams.set('v','terminal-30');return url.href;}
+function siteURL(path){const url=new URL((isArabic?'ar/':'')+path.replace(/^\.\//,''),base);url.searchParams.set('v','terminal-32');return url.href;}
 function navigate(path){location.assign(siteURL(path));}
 let indexPromise,teamPromise;
 function searchData(){return indexPromise??=fetch(new URL(isArabic?'search-index-ar.json':'search-index.json',base)).then(r=>{if(!r.ok)throw Error();return r.json();}).catch(e=>{indexPromise=null;throw e;});}
@@ -90,7 +90,7 @@ async function execute(raw){
   const requested=arg.replace(/^--section\s+/, '');
   const normalized=requested.replace(/^block-/, 'output-');
   const target=document.getElementById(normalized);
-  if(target){revealBlock(target);log.hidden=true;target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});}else output(value,'Section not found on this page. Use read --section block-1, or search to find a section.');return;
+  if(target){revealBlock(target);log.hidden=true;target.scrollIntoView({behavior:'instant',block:'start'});}else output(value,'Section not found on this page. Use read --section block-1, or search to find a section.');return;
  }
  if(verb==='cat'&&arg==='company.json'){output(value,JSON.stringify({Logo:'company-logo.png',location:isArabic?'بغداد، العراق':'Baghdad, Iraq',specialty:isArabic?'Odoo والتحول الرقمي':'Odoo & digital transformation',clients:'130+'},null,2));return;}
  if(['cd','cat','open'].includes(verb)){if(arg==='team'){navigate('about-us/#team');return;}if(arg==='odoo'){navigate('services/#odoo');return;}const route=routeFor(arg);if(route){navigate(route.path);return;}output(value,'Page not found: '+arg+'\nUse ls to see the available files.');return;}
@@ -166,5 +166,5 @@ document.querySelectorAll('.song-link[data-song-title]').forEach(a=>a.addEventLi
 
 // Preserve page, section and search filters when changing language.
 document.querySelector('.language-switch')?.addEventListener('click',e=>{
- const a=e.currentTarget;const target=new URL(a.href);const params=new URLSearchParams(location.search);params.set('v','terminal-30');target.search=params.toString();target.hash=location.hash;a.href=target.href;
+ const a=e.currentTarget;const target=new URL(a.href);const params=new URLSearchParams(location.search);params.set('v','terminal-32');target.search=params.toString();target.hash=location.hash;a.href=target.href;
 });

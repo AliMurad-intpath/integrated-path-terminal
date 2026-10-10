@@ -25,7 +25,7 @@ if(enquiry)enquiry.addEventListener('submit',e=>{
 });
 const base=new URL('./',document.baseURI);
 const routes=[{name:'Home',key:'home',file:'home.md',path:''},{name:'About Us',key:'about',file:'about.md',path:'about-us/'},{name:'Our Services',key:'services',file:'services.md',path:'services/'},{name:'Contact us',key:'contact',file:'contact.md',path:'contactus/'},{name:'Support',key:'support',file:'support.md',path:'our-support/'},{name:'Jobs',key:'jobs',file:'jobs.md',path:'jobs/'}];
-const commands=['help','ls','pwd','whoami','home','about','services','contact','support','jobs','team','odoo','partners','clients','search ','song ','cd ','cat ','open ','history','clear','read --section ','theme dark','theme light'];
+const commands=['play','diagnose','build','mission','challenge','passport','daily','simulate','team --shuffle','help','ls','pwd','whoami','home','about','services','contact','support','jobs','team','odoo','partners','clients','search ','song ','cd ','cat ','open ','history','clear','read --section ','theme dark','theme light'];
 const input=document.getElementById('command-input');
 const form=document.getElementById('command-form');
 const log=document.getElementById('terminal-log');
@@ -60,7 +60,7 @@ function output(command,message,links=[]){
  entry.append(prompt,body);log.append(entry);while(log.children.length>4)log.firstElementChild.remove();log.hidden=false;log.scrollTop=log.scrollHeight;
 }
 function routeFor(raw){const key=raw.trim().toLowerCase().replace(/^~\/?/,'').replace(/^\.\//,'').replace(/^\/|\/$/g,'');if(['','..','index.html'].includes(key))return routes[0];return routes.find(r=>[r.key,r.file,r.path.replace(/\/$/,''),r.name.toLowerCase()].includes(key));}
-function siteURL(path){const url=new URL((isArabic?'ar/':'')+path.replace(/^\.\//,''),base);url.searchParams.set('v','terminal-24');return url.href;}
+function siteURL(path){const url=new URL((isArabic?'ar/':'')+path.replace(/^\.\//,''),base);url.searchParams.set('v','terminal-30');return url.href;}
 function navigate(path){location.assign(siteURL(path));}
 let indexPromise,teamPromise;
 function searchData(){return indexPromise??=fetch(new URL(isArabic?'search-index-ar.json':'search-index.json',base)).then(r=>{if(!r.ok)throw Error();return r.json();}).catch(e=>{indexPromise=null;throw e;});}
@@ -68,7 +68,14 @@ function teamData(){return teamPromise??=fetch(new URL('team.json',base)).then(r
 async function execute(raw){
  const value=raw.trim().slice(0,300);if(!value)return;history.push(value);history=history.slice(-50);historyIndex=history.length;try{sessionStorage.setItem('ip-command-history',JSON.stringify(history));}catch{}
  input.value='';hideSuggestions();const [cmd,...rest]=value.split(/\s+/);const verb=cmd.toLowerCase(),arg=rest.join(' ');
- if(['help','?','--help'].includes(verb)){output(value,'Navigate: home · about · services · contact · support · jobs\nBrowse: ls · cd services · cat about.md · open team\nExplore: team [name] · odoo · partners · clients\nFind: search <words> · song <team member>\nSession: pwd · whoami · history · clear · theme dark|light\n\nCommands only explore this website. Click file names to navigate without typing.');return;}
+ if(typeof handleActivityCommand==='function'&&await handleActivityCommand(value))return;
+ if(!arg&&[100,111,115,104,105].map(n=>String.fromCharCode(n)).join('')===verb){
+  const panel=document.createElement('dialog');panel.className='message-dialog';panel.setAttribute('aria-labelledby','message-title');
+  const message=document.createElement('p');message.id='message-title';message.textContent=String.fromCharCode(76,105,98,98,97,116,32,76,105,98,98,105,32,60,51);
+  const close=document.createElement('button');close.className='button';close.type='button';close.textContent=isArabic?'إغلاق':'Close';close.addEventListener('click',()=>panel.close());
+  panel.append(message,close);document.body.append(panel);panel.addEventListener('close',()=>{panel.remove();input.focus();});panel.showModal();return;
+ }
+ if(['help','?','--help'].includes(verb)){output(value,'Navigate: home · about · services · contact · support · jobs\nBrowse: ls · cd services · cat about.md · open team\nExplore: team [name] · odoo · partners · clients\nFind: search <words> · song <team member>\nSession: pwd · whoami · history · clear · theme dark|light\n\nCommands only explore this website. Click file names to navigate without typing.');output('play',isArabic?'استكشف الأنشطة: play · diagnose · build · mission · challenge · team --shuffle · passport · daily · simulate':'Explore activities: play · diagnose · build · mission · challenge · team --shuffle · passport · daily · simulate');return;}
  if(verb==='clear'){log.replaceChildren();log.hidden=true;return;}
  if(verb==='history'&&arg==='--clear'){history=[];historyIndex=0;try{sessionStorage.removeItem('ip-command-history');}catch{}output(value,'Command history cleared.');return;}
  if(verb==='history'){output(value,history.map((s,i)=>String(i+1).padStart(2,' ')+'  '+s).join('\n'));return;}
@@ -159,5 +166,5 @@ document.querySelectorAll('.song-link[data-song-title]').forEach(a=>a.addEventLi
 
 // Preserve page, section and search filters when changing language.
 document.querySelector('.language-switch')?.addEventListener('click',e=>{
- const a=e.currentTarget;const target=new URL(a.href);const params=new URLSearchParams(location.search);params.set('v','terminal-24');target.search=params.toString();target.hash=location.hash;a.href=target.href;
+ const a=e.currentTarget;const target=new URL(a.href);const params=new URLSearchParams(location.search);params.set('v','terminal-30');target.search=params.toString();target.hash=location.hash;a.href=target.href;
 });

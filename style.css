@@ -172,3 +172,25 @@ html[dir="rtl"] .breadcrumb .file-type{margin-left:0;margin-right:auto;direction
 /* Right-align Arabic support contacts while preserving phone-number order. */
 html[dir="rtl"] .support-numbers{align-items:flex-start;text-align:right}
 html[dir="rtl"] .support-numbers>a{direction:ltr;unicode-bidi:isolate;text-align:right;max-width:100%}
+
+:root{--brand-button:#2e529c}
+.button:not(.secondary):not(.light){background:var(--brand-button);border-color:var(--brand-button);color:#fff}
+.button.secondary:hover,.button.light:hover{border-color:var(--blue)}
+.message-dialog{width:min(400px,calc(100vw - 40px));padding:32px;text-align:center;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;box-shadow:0 24px 80px #0006}
+.message-dialog::backdrop{background:#03080ebd}
+.message-dialog p{color:var(--text);font:600 24px/1.5 var(--sans);margin-bottom:24px;direction:ltr}
+
+/* Homepage brand emphasis and WhatsApp's own action color. */
+.page-home .shell-wordmark span{color:var(--blue)}
+.button.whatsapp-button:not(.secondary):not(.light){background:#25d366;border-color:#25d366;color:#fff}
+
+.activity-dialog{width:min(660px,calc(100vw - 28px));max-height:calc(100dvh - 32px);padding:0;border:1px solid var(--line);border-radius:8px;color:var(--text);background:var(--panel);box-shadow:0 25px 90px #0008;overflow:auto}
+.activity-dialog::backdrop{background:#03080ed0}.activity-dialog>header{display:flex;gap:18px;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line);background:var(--raised)}
+.activity-dialog h2{font:600 20px/1.6 var(--sans)}.activity-close{background:transparent;border:1px solid var(--line);border-radius:4px;padding:8px 12px;white-space:nowrap;color:var(--text)}.activity-body{padding:24px;display:flex;flex-direction:column;gap:18px}.activity-body h3{font-size:21px}.activity-body p{line-height:1.85}.activity-choices{display:grid;gap:12px}.activity-choices .button{text-align:start;justify-content:flex-start;font-family:var(--sans);font-size:15px}.activity-body>.button{align-self:flex-start;font-family:var(--sans)}.activity-body button:disabled{opacity:.6;cursor:default;transform:none}.activity-meta{font-size:13px}.activity-feedback{padding:14px;border-inline-start:3px solid var(--green);background:var(--raised)}.activity-feedback:empty{display:none}.activity-badges{list-style:none;padding:0;display:grid;gap:14px;color:var(--green)}.activity-portrait{width:150px;height:170px;object-fit:contain;align-self:center}.activity-body pre{direction:ltr;text-align:center;white-space:pre-wrap;color:var(--green);font-family:var(--mono)}.activity-coffee{animation:coffee-steam 2s ease-in-out infinite}.activity-effect{height:220px;position:relative;overflow:hidden;background:var(--bg);border-radius:5px}.activity-effect span{position:absolute;left:var(--x);top:-90px;color:var(--green);white-space:pre;animation:activity-fall 3s var(--delay) linear infinite;font:16px var(--mono)}.activity-effect.party span{color:var(--blue);font-size:28px}.activity-effect.party span:nth-child(even){color:var(--green)}.activity-credits{display:grid;gap:16px;text-align:center}.activity-credits p{animation:credits-in .6s ease-out both;direction:auto}.activity-effect.still span{animation:none;top:30px}
+@keyframes activity-fall{to{transform:translateY(350px) rotate(12deg)}}@keyframes coffee-steam{50%{opacity:.65;transform:translateY(-3px)}}@keyframes credits-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.activity-effect span,.activity-coffee,.activity-credits p{animation:none}.activity-effect span{top:30px}}
+@media(max-width:600px){.activity-dialog>header{padding:14px 16px}.activity-dialog h2{font-size:17px}.activity-body{padding:18px}.activity-body h3{font-size:19px}.activity-choices .button{font-size:14px}}
+
+.activity-body.activity-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.activity-menu>p{grid-column:1/-1}.activity-menu>.button{align-self:stretch;min-height:64px;font-size:14px}@media(max-width:480px){.activity-body.activity-menu{grid-template-columns:1fr}.activity-menu>.button{min-height:48px}}
+
+.puzzle-formula{font-family:var(--mono);unicode-bidi:isolate;text-align:center;overflow-wrap:anywhere;padding-block:8px}

@@ -1,8 +1,8 @@
 'use strict';
 const menu=document.querySelector('.menu-toggle');
 const nav=document.querySelector('#navigation');
-function closeMenu(){menu.setAttribute('aria-expanded','false');nav.classList.remove('open');}
-menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open);});
+function closeMenu(){if(matchMedia('(max-width:700px)').matches){menu.setAttribute('aria-expanded','false');nav.classList.remove('open');}}
+menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));if(matchMedia('(min-width:701px)').matches)document.body.classList.toggle('explorer-collapsed',!open);else nav.classList.toggle('open',open);});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 function setupFilter(inputId,selector,countId,emptyId,label){
  const input=document.getElementById(inputId);if(!input)return;
@@ -14,15 +14,6 @@ function setupFilter(inputId,selector,countId,emptyId,label){
 setupFilter('team-search','.team-card','team-count','team-empty','team members');
 setupFilter('job-search','.job-card','job-count','job-empty','listed roles');
 const enquiry=document.getElementById('enquiry-form');
-if(enquiry)enquiry.addEventListener('submit',e=>{
- e.preventDefault();const data=new FormData(enquiry);
- const labels=isArabic?['الاسم','الشركة','البريد الإلكتروني','رقم الهاتف','الرسالة']:['Name','Company','Email','Phone','Message'];
- const body=[labels[0]+': '+data.get('name'),labels[1]+': '+data.get('company'),labels[2]+': '+data.get('email'),labels[3]+': '+data.get('phone'),'',labels[4]+':',data.get('message')].join('\n');
- const draft='mailto:Info@int-path.com?subject='+encodeURIComponent(data.get('subject'))+'&body='+encodeURIComponent(body);
- window.location.href=draft;
- const status=document.getElementById('enquiry-status');status.replaceChildren(document.createTextNode(tr('Your email draft is ready. Send it from your email app to complete the enquiry. ')));
- const retry=document.createElement('a');retry.href=draft;retry.textContent=tr('Open email draft again');status.append(retry);
-});
 const base=new URL('./',document.baseURI);
 const routes=[{name:'Home',key:'home',file:'home.md',path:''},{name:'About Us',key:'about',file:'about.md',path:'about-us/'},{name:'Our Services',key:'services',file:'services.md',path:'services/'},{name:'Contact us',key:'contact',file:'contact.md',path:'contactus/'},{name:'Support',key:'support',file:'support.md',path:'our-support/'},{name:'Jobs',key:'jobs',file:'jobs.md',path:'jobs/'}];
 const commands=['play','diagnose','build','mission','challenge','passport','daily','simulate','team --shuffle','help','ls','pwd','whoami','home','about','services','contact','support','jobs','team','odoo','partners','clients','search ','song ','cd ','cat ','open ','history','clear','read --section ','theme dark','theme light'];
@@ -36,7 +27,7 @@ let pendingInput='';
 function setTheme(theme){const value=theme==='light'?'light':'dark';document.documentElement.dataset.theme=value;try{localStorage.setItem('ip-terminal-theme',value);}catch{}const toggle=document.querySelector('.theme-toggle');toggle.textContent=tr(value==='light'?'Dark':'Light');toggle.setAttribute('aria-label',tr('Switch to '+(value==='light'?'dark':'light')+' theme'));}
 let savedTheme='dark';try{savedTheme=localStorage.getItem('ip-terminal-theme')||'dark';}catch{}setTheme(savedTheme);
 document.querySelector('.theme-toggle').addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='light'?'dark':'light'));
-function focusCommand(){input.focus();input.select();}
+function focusCommand(){document.body.classList.remove('dock-closed');document.querySelector('.dock-open')?.setAttribute('aria-expanded','true');input.focus();input.select();}
 document.querySelector('.command-focus').addEventListener('click',focusCommand);
 function hideSuggestions(){suggestions.hidden=true;suggestions.replaceChildren();}
 function candidates(value){const q=value.toLowerCase();const prefix=q.match(/^(cd|cat|open)\s+/);if(prefix){return routes.map(r=>prefix[1]+' '+(prefix[1]==='cat'?r.file:r.key)).filter(x=>x.startsWith(q));}return commands.filter(x=>x.startsWith(q));}
@@ -53,6 +44,7 @@ document.addEventListener('keydown',e=>{
  if(e.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus();}
 });
 function output(command,message,links=[]){
+ document.body.classList.remove('dock-closed');document.querySelector('.dock-open')?.setAttribute('aria-expanded','true');
  const entry=document.createElement('div');entry.className='log-entry';
  const prompt=document.createElement('div');prompt.className='log-command';prompt.textContent='$ '+command;
  const body=document.createElement('div');body.className='log-body';body.textContent=tr(message);if(isArabic)body.dir=command==='cat company.json'?'ltr':'auto';
@@ -60,7 +52,7 @@ function output(command,message,links=[]){
  entry.append(prompt,body);log.append(entry);while(log.children.length>4)log.firstElementChild.remove();log.hidden=false;log.scrollTop=log.scrollHeight;
 }
 function routeFor(raw){const key=raw.trim().toLowerCase().replace(/^~\/?/,'').replace(/^\.\//,'').replace(/^\/|\/$/g,'');if(['','..','index.html'].includes(key))return routes[0];return routes.find(r=>[r.key,r.file,r.path.replace(/\/$/,''),r.name.toLowerCase()].includes(key));}
-function siteURL(path){const url=new URL((isArabic?'ar/':'')+path.replace(/^\.\//,''),base);url.searchParams.set('v','terminal-32');return url.href;}
+function siteURL(path){const url=new URL((isArabic?'ar/':'')+path.replace(/^\.\//,''),base);url.searchParams.set('v','terminal-34');return url.href;}
 function navigate(path){location.assign(siteURL(path));}
 let indexPromise,teamPromise;
 function searchData(){return indexPromise??=fetch(new URL(isArabic?'search-index-ar.json':'search-index.json',base)).then(r=>{if(!r.ok)throw Error();return r.json();}).catch(e=>{indexPromise=null;throw e;});}
@@ -166,5 +158,5 @@ document.querySelectorAll('.song-link[data-song-title]').forEach(a=>a.addEventLi
 
 // Preserve page, section and search filters when changing language.
 document.querySelector('.language-switch')?.addEventListener('click',e=>{
- const a=e.currentTarget;const target=new URL(a.href);const params=new URLSearchParams(location.search);params.set('v','terminal-32');target.search=params.toString();target.hash=location.hash;a.href=target.href;
+ const a=e.currentTarget;const target=new URL(a.href);const params=new URLSearchParams(location.search);params.set('v','terminal-34');target.search=params.toString();target.hash=location.hash;a.href=target.href;
 });

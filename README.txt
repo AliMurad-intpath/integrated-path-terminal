@@ -33,7 +33,7 @@ Contact enquiries prepare a draft in the visitor’s email app and are not sent 
 VALIDATION
 Checked command help, page navigation, content search, song lookup, team filtering, command history, tab completion, and theme switching. All six pages checked for horizontal overflow at 1440, 820, and 390 CSS pixels. Internal file references and section links validated. Team portraits keep consistent frames without modifying or cropping their image files.
 
-The live int-path.com website has not been modified. Private publication remains blocked by the existing runtime approval restriction.
+The live int-path.com website has not been modified. This package is a local preview; no live publication has been performed.
 
 October 9 revision: individually linked partner cards using the original logo artwork; official Odoo PNGs from https://www.odoo.com/page/brand-assets; screenshot alignment adjustments. Partner links open in new tabs.
 
@@ -53,3 +53,9 @@ Outage missions now select from five reviewed incident scenarios: internet, DNS,
 
 OFFICE MAP AND SCROLLING
 The location command opens an on-demand bilingual map at the supplied office pin (33.3186734, 44.4147758). Visitors choose a start point and preview an animated driving route, with replay/stop controls and a Google Maps directions link. No device geolocation is requested. Map rendering loads Leaflet 1.9.4 from unpkg, OpenStreetMap tiles with attribution, and the public OSRM route service. Selected start/end coordinates are sent to OSRM; no live traffic is provided. External services require connectivity; directions remain available if preview loading fails. For high-traffic deployment, use a suitable hosted routing/tile service. Closing cancels requests and animation. Native page scrolling and section navigation now avoid smooth-scroll easing. Actual refresh rate is controlled by the visitor's browser/display.
+
+UX POLISH — terminal-33
+The explorer and command bar can be opened when needed, leaving more room for content. The homepage offers a guided solution finder and a clear project enquiry action. Services now describe common business needs and prefill the enquiry subject. Contact includes visible office-map access, existing-customer support routing, an email draft and copy option. The online enquiry link opens the existing int-path.com form; this static package has no submission backend. Before replacing the existing live website, connect a real form endpoint or retain the existing form at a separate URL. Case studies were intentionally omitted pending verified project information. English and Arabic layouts were checked across all 12 pages at mobile width, along with mobile navigation and command access.
+
+TERMINAL-34: Direct SMTP form integration
+Contact, support and applications now submit through api/send.php to info@int-path.com. PHPMailer 7.1.1 is bundled. SMTP configuration outside the public directory and a PHP-enabled GoDaddy deployment are required; live email delivery has not been tested. See the separately supplied EMAIL-SETUP.txt and ip-smtp-config.example.php. Previous notes about email drafts are superseded.

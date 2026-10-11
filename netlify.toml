@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# forms.js keeps calling /api/send.php; Netlify routes it to the function.
+[[redirects]]
+  from = "/api/send.php"
+  to = "/.netlify/functions/send"
+  status = 200
+  force = true

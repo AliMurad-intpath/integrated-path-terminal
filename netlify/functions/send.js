@@ -1,0 +1,130 @@
+'use strict';
+// Netlify Function: sends the website forms (enquiry / support / application) through the GoDaddy cPanel mailbox.
+// Configure with environment variables (Netlify > Site configuration > Environment variables).
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
+const Busboy = require('busboy');
+
+const MAX_FILE = 4 * 1024 * 1024; // Netlify Functions accept ~6 MB requests, so keep attachments under 4 MB
+const LIMITS = { name: 120, company: 180, email: 254, phone: 60, subject: 160, message: 4000 };
+const KINDS = ['enquiry', 'support', 'application'];
+
+const reply = (status, code, extra = {}) => ({
+  statusCode: status,
+  headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' },
+  body: JSON.stringify({ ok: status === 200, code, ...extra }),
+});
+
+const secret = () => process.env.FORM_SECRET || process.env.SMTP_PASS || '';
+const sign = (ts) => crypto.createHmac('sha256', secret()).update(ts).digest('hex');
+const makeToken = () => { const ts = Date.now().toString(36); return ts + '.' + sign(ts); };
+function checkToken(token) {
+  if (typeof token !== 'string') return false;
+  const [ts, sig] = token.split('.');
+  if (!ts || !sig) return false;
+  const age = Date.now() - parseInt(ts, 36);
+  if (!(age >= 0 && age < 2 * 3600 * 1000)) return false;
+  const a = Buffer.from(sig), b = Buffer.from(sign(ts));
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+
+function sniff(buf) {
+  if (buf.slice(0, 4).toString('latin1') === '%PDF') return ['pdf', 'application/pdf'];
+  if (buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return ['jpg', 'image/jpeg'];
+  if (buf.slice(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return ['png', 'image/png'];
+  if (buf.slice(0, 4).toString('latin1') === 'RIFF' && buf.slice(8, 12).toString('latin1') === 'WEBP') return ['webp', 'image/webp'];
+  if (buf.slice(4, 8).toString('latin1') === 'ftyp') return ['mp4', 'video/mp4'];
+  return null;
+}
+
+function parseMultipart(event) {
+  return new Promise((resolve, reject) => {
+    const contentType = event.headers['content-type'] || event.headers['Content-Type'] || '';
+    if (!/multipart\/form-data/i.test(contentType)) return reject(new Error('validation'));
+    const bb = Busboy({ headers: { 'content-type': contentType }, limits: { fileSize: MAX_FILE, files: 1, fields: 20, fieldSize: 20000 } });
+    const fields = {}; let file = null;
+    bb.on('field', (name, value) => { fields[name] = value; });
+    bb.on('file', (name, stream, info) => {
+      const chunks = []; let truncated = false;
+      stream.on('data', (d) => chunks.push(d));
+      stream.on('limit', () => { truncated = true; });
+      stream.on('end', () => { if (name === 'attachment' && info.filename) file = { buffer: Buffer.concat(chunks), truncated }; });
+    });
+    bb.on('close', () => resolve({ fields, file }));
+    bb.on('error', reject);
+    bb.end(Buffer.from(event.body || '', event.isBase64Encoded ? 'base64' : 'utf8'));
+  });
+}
+
+exports.handler = async (event) => {
+  const env = process.env;
+  if (!env.SMTP_HOST || !env.SMTP_USER || !env.SMTP_PASS) return reply(503, 'unconfigured');
+
+  // Same-origin check: the browser's Origin must match the host serving this site.
+  const origin = event.headers.origin || '';
+  if (origin) {
+    let originHost = '';
+    try { originHost = new URL(origin).host; } catch (e) { return reply(403, 'origin'); }
+    const host = event.headers['x-forwarded-host'] || event.headers.host || '';
+    const extra = (env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
+    if (originHost !== host && !extra.includes(origin)) return reply(403, 'origin');
+  }
+  if ((event.headers['sec-fetch-site'] || '') === 'cross-site') return reply(403, 'origin');
+
+  if (event.httpMethod === 'GET') return reply(200, 'ready', { token: makeToken() });
+  if (event.httpMethod !== 'POST') return reply(405, 'method');
+
+  let parsed;
+  try { parsed = await parseMultipart(event); } catch (e) { return reply(422, 'validation'); }
+  const { fields: raw, file } = parsed;
+
+  if (!checkToken(raw.token)) return reply(403, 'token');
+  if (raw.website) return reply(422, 'validation'); // honeypot
+  const kind = raw.kind;
+  if (!KINDS.includes(kind)) return reply(422, 'validation');
+
+  const fields = {};
+  for (const [key, limit] of Object.entries(LIMITS)) {
+    const value = String(raw[key] ?? '').trim();
+    if (value.length > limit || (key !== 'message' && /[\r\n\0]/.test(value))) return reply(422, 'validation');
+    fields[key] = value;
+  }
+  for (const key of ['name', 'email', 'subject', 'message']) if (!fields[key]) return reply(422, 'validation');
+  if (!/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(fields.email)) return reply(422, 'validation');
+
+  let attachment = null;
+  if (file) {
+    if (file.truncated || file.buffer.length === 0) return reply(422, 'attachment');
+    const type = sniff(file.buffer);
+    const allowed = kind === 'application' ? ['pdf'] : ['pdf', 'jpg', 'png', 'webp', 'mp4'];
+    if (!type || !allowed.includes(type[0])) return reply(422, 'attachment');
+    attachment = { filename: (kind === 'application' ? 'CV' : 'attachment') + '.' + type[0], content: file.buffer, contentType: type[1] };
+  }
+
+  const port = Number(env.SMTP_PORT || 465);
+  const transporter = nodemailer.createTransport({
+    host: env.SMTP_HOST,
+    port,
+    secure: env.SMTP_SECURE ? env.SMTP_SECURE === 'true' : port === 465,
+    auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
+    connectionTimeout: 8000, greetingTimeout: 8000, socketTimeout: 15000,
+  });
+  const to = env['MAIL_TO_' + kind.toUpperCase()] || env.MAIL_TO || 'info@int-path.com';
+  let text = 'Form: ' + kind + '\n\n';
+  for (const [key, value] of Object.entries(fields)) text += key.charAt(0).toUpperCase() + key.slice(1) + ': ' + value + '\n\n';
+
+  try {
+    await transporter.sendMail({
+      from: { name: 'Integrated Path Website', address: env.SMTP_FROM || env.SMTP_USER },
+      to,
+      replyTo: { name: fields.name.replace(/["<>]/g, ''), address: fields.email },
+      subject: '[' + kind.charAt(0).toUpperCase() + kind.slice(1) + '] ' + fields.subject,
+      text,
+      attachments: attachment ? [attachment] : [],
+    });
+    return reply(200, 'accepted');
+  } catch (error) {
+    console.error('Integrated Path form: SMTP delivery failed:', error && error.code, error && error.message);
+    return reply(502, 'delivery');
+  }
+};

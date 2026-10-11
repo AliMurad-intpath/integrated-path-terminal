@@ -59,3 +59,7 @@ The explorer and command bar can be opened when needed, leaving more room for co
 
 TERMINAL-34: Direct SMTP form integration
 Contact, support and applications now submit through api/send.php to info@int-path.com. PHPMailer 7.1.1 is bundled. SMTP configuration outside the public directory and a PHP-enabled GoDaddy deployment are required; live email delivery has not been tested. See the separately supplied EMAIL-SETUP.txt and ip-smtp-config.example.php. Previous notes about email drafts are superseded.
+
+
+NETLIFY FORMS (current setup)
+Contact, support and job-application forms post to /api/send.php, which netlify.toml routes to netlify/functions/send.js. The function sends mail over SMTP (GoDaddy cPanel mailbox) using Netlify environment variables: SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, FORM_SECRET (optional: SMTP_FROM, MAIL_TO, MAIL_TO_ENQUIRY, MAIL_TO_SUPPORT, MAIL_TO_APPLICATION, ALLOWED_ORIGINS). Never commit passwords or .env files. Attachments are limited to 4 MB. The earlier PHP/PHPMailer version (api/send.php, vendor/) was removed because Netlify does not run PHP.

@@ -29,10 +29,22 @@
     });
   }
 
-  fetch('/api/jobs', { headers: { Accept: 'application/json' } })
-    .then((response) => (response.ok ? response.json() : Promise.reject(new Error('bad response'))))
+  const status = list.querySelector('[data-jobs-status]');
+  const count = document.getElementById('job-count');
+  const fail = (reason) => {
+    console.warn('Jobs list unavailable:', reason);
+    if (status) {
+      status.textContent = ar
+        ? 'تعذّر تحميل الوظائف الشاغرة حالياً. يُرجى المحاولة لاحقاً، أو إرسال طلب عام عبر النموذج أدناه.'
+        : 'Open positions could not be loaded right now. Please try again shortly, or send a general application using the form below.';
+    }
+    if (count) count.textContent = '';
+  };
+
+  fetch('/api/jobs', { headers: { Accept: 'application/json' }, cache: 'no-store' })
+    .then((response) => response.json().catch(() => null))
     .then((data) => {
-      if (!data || !data.ok || !Array.isArray(data.jobs)) return;
+      if (!data || !data.ok || !Array.isArray(data.jobs)) { fail((data && data.code) + ' ' + ((data && data.hint) || '')); return; }
       const template = list.querySelector('.job-button');
       const href = template ? template.getAttribute('href') : '#application-form';
       const label = template ? template.textContent : (ar ? 'التفاصيل والتقديم' : 'Apply for this role');
@@ -93,5 +105,5 @@
         if (empty) empty.hidden = true;
       }
     })
-    .catch(() => {});
+    .catch((error) => fail(error && error.message));
 })();

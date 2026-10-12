@@ -11,3 +11,9 @@
   to = "/.netlify/functions/send"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/api/jobs"
+  to = "/.netlify/functions/jobs"
+  status = 200
+  force = true

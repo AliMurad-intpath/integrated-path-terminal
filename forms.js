@@ -19,10 +19,8 @@ document.querySelectorAll('form[data-email-form]').forEach(form=>{
    status.textContent=isArabic?'تم إرسال طلبك إلى فريقنا. شكراً لتواصلك معنا.':'Your request has been sent to our team. Thank you for contacting us.';
    form.reset();
   }catch(error){
-   const messages={attachment:['Please attach an allowed file smaller than 4 MB.','يرجى إرفاق ملف بالصيغة المسموحة وحجم أقل من 4 ميغابايت.'],rate:['Too many attempts. Please try again in an hour or email info@int-path.com.','محاولات كثيرة. حاول بعد ساعة أو راسل info@int-path.com.'],validation:['Please check the required fields and email address.','يرجى التحقق من الحقول المطلوبة والبريد الإلكتروني.']};
+   const messages={attachment:['Please attach an allowed file smaller than 4 MB.','يرجى إرفاق ملف بالصيغة المسموحة وحجم أقل من 4 ميغابايت.'],rate:['Too many attempts. Please try again in an hour or email info@int-path.com.','محاولات كثيرة. حاول بعد ساعة أو راسل info@int-path.com.'],job:['This position is no longer open. Please choose another role.','هذه الوظيفة لم تعد متاحة. يرجى اختيار وظيفة أخرى.'],validation:['Please check the required fields and email address.','يرجى التحقق من الحقول المطلوبة والبريد الإلكتروني.']};
    status.textContent=error.name==='AbortError'?(isArabic?'لم نتمكن من تأكيد الإرسال. احتفظنا بالنص؛ يرجى التحقق قبل إعادة المحاولة.':'We could not confirm delivery. Your text is preserved; please check before retrying.'):(messages[error.message]?.[isArabic?1:0]||(isArabic?'تعذّر الإرسال حالياً. احتفظنا بالنص؛ يمكنك مراسلتنا على info@int-path.com.':'Sending is currently unavailable. Your text is preserved; you can email info@int-path.com.'));
   }finally{clearTimeout(timer);delete form.dataset.sending;button.disabled=false;form.removeAttribute('aria-busy');}
  });
 });
-
- document.querySelectorAll('.job-button').forEach(link=>link.addEventListener('click',event=>{const form=document.getElementById('application-form');if(form){event.preventDefault();form.scrollIntoView({behavior:'instant',block:'center'});form.elements.name.focus({preventScroll:true});form.elements.subject.value=link.closest('.job-card').querySelector('h3').textContent;}}));

@@ -63,3 +63,9 @@ Contact, support and applications now submit through api/send.php to info@int-pa
 
 NETLIFY FORMS (current setup)
 Contact, support and job-application forms post to /api/send.php, which netlify.toml routes to netlify/functions/send.js. The function sends mail over SMTP (GoDaddy cPanel mailbox) using Netlify environment variables: SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, FORM_SECRET (optional: SMTP_FROM, MAIL_TO, MAIL_TO_ENQUIRY, MAIL_TO_SUPPORT, MAIL_TO_APPLICATION, ALLOWED_ORIGINS). Never commit passwords or .env files. Attachments are limited to 4 MB. The earlier PHP/PHPMailer version (api/send.php, vendor/) was removed because Netlify does not run PHP.
+
+
+JOBS + APPLICATIONS (Odoo 17 Recruitment)
+- /api/jobs (netlify/functions/jobs.js) lists the published job positions from Odoo; jobs-odoo.js renders them on the Jobs page (English and Arabic). The static cards in the HTML are only a fallback if Odoo cannot be reached.
+- The application form on the Jobs page (position, name, email, phone, LinkedIn, short introduction, resume) posts to /api/send.php. For applications, netlify/functions/send.js creates an applicant in Odoo Recruitment (netlify/lib/odoo.js) with the resume attached, then also emails the team as a safety net.
+- Netlify variables: ODOO_URL, ODOO_DB, ODOO_USER, ODOO_API_KEY (secret), JOBS_DEFAULT_LOCATION. The Odoo user needs Recruitment Officer access (read job positions, create applicants and attachments).

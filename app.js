@@ -6,9 +6,9 @@ menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 function setupFilter(inputId,selector,countId,emptyId,label){
  const input=document.getElementById(inputId);if(!input)return;
- const cards=[...document.querySelectorAll(selector)];
- function filter(){const q=input.value.trim().toLowerCase();let shown=0;cards.forEach(card=>{card.hidden=!q.split(/\s+/).filter(Boolean).every(term=>card.dataset.search.split(/\s+/).some(word=>word.startsWith(term)));if(!card.hidden)shown++;});document.getElementById(countId).textContent=isArabic ? shown+' '+(inputId==='team-search'?'من أعضاء الفريق':'من الوظائف المعروضة') : shown+' '+(shown===1?label.replace(/s$/, ''):label);document.getElementById(emptyId).hidden=shown>0;}
+ function filter(){const cards=[...document.querySelectorAll(selector)];const q=input.value.trim().toLowerCase();let shown=0;cards.forEach(card=>{card.hidden=!q.split(/\s+/).filter(Boolean).every(term=>card.dataset.search.split(/\s+/).some(word=>word.startsWith(term)));if(!card.hidden)shown++;});document.getElementById(countId).textContent=isArabic ? shown+' '+(inputId==='team-search'?'من أعضاء الفريق':'من الوظائف المعروضة') : shown+' '+(shown===1?label.replace(/s$/, ''):label);document.getElementById(emptyId).hidden=shown>0;}
  input.addEventListener('input',filter);
+ (window.ipFilters=window.ipFilters||{})[inputId]=filter;
  const q=new URLSearchParams(location.search).get(inputId==='team-search'?'team':'job');if(q){input.value=q;filter();}
 }
 setupFilter('team-search','.team-card','team-count','team-empty','team members');

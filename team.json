@@ -47,13 +47,6 @@
     "song_url": null
   },
   {
-    "name": "Abdullah Raed",
-    "role": "Marketing Manager",
-    "image": "assets/32bc2fe924a2943e.jpeg",
-    "department": "Marketing",
-    "song_url": null
-  },
-  {
     "name": "Ibraheem Rasheed",
     "role": "Implementation Manager",
     "image": "assets/ab54b71c2f4bbdd2.jpeg",
@@ -125,17 +118,6 @@
     "song_artist": "Grant Lee Buffalo",
     "youtube_title": "Grant Lee Buffalo -  Fuzzy (Official Music Video)",
     "youtube_channel": "Chrysalis Records"
-  },
-  {
-    "name": "Meron Nadheer",
-    "role": "AI Engineer",
-    "image": "assets/2ee78a3af17bec71.jpeg",
-    "department": "Engineering",
-    "song_url": "https://www.youtube.com/watch?v=kPa7bsKwL-c",
-    "song_title": "Die With a Smile",
-    "song_artist": "Lady Gaga & Bruno Mars",
-    "youtube_title": "Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)",
-    "youtube_channel": "LadyGagaVEVO"
   },
   {
     "name": "Dania Abdullah",

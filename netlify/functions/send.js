@@ -1,12 +1,13 @@
 'use strict';
 // Netlify Function: sends the website forms (enquiry / support / application) through the GoDaddy cPanel mailbox.
-// Configure with environment variables (Netlify > Site configuration > Environment variables).
+// Applications are also created in Odoo Recruitment (hr.applicant) when the ODOO_* variables are set.
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const Busboy = require('busboy');
+const odoo = require('../lib/odoo');
 
 const MAX_FILE = 4 * 1024 * 1024; // Netlify Functions accept ~6 MB requests, so keep attachments under 4 MB
-const LIMITS = { name: 120, company: 180, email: 254, phone: 60, subject: 160, message: 4000 };
+const LIMITS = { name: 120, company: 180, email: 254, phone: 60, subject: 160, message: 4000, linkedin: 200, job_title: 160 };
 const KINDS = ['enquiry', 'support', 'application'];
 
 const reply = (status, code, extra = {}) => ({
@@ -82,6 +83,7 @@ exports.handler = async (event) => {
   if (raw.website) return reply(422, 'validation'); // honeypot
   const kind = raw.kind;
   if (!KINDS.includes(kind)) return reply(422, 'validation');
+  const isApplication = kind === 'application';
 
   const fields = {};
   for (const [key, limit] of Object.entries(LIMITS)) {
@@ -89,42 +91,81 @@ exports.handler = async (event) => {
     if (value.length > limit || (key !== 'message' && /[\r\n\0]/.test(value))) return reply(422, 'validation');
     fields[key] = value;
   }
-  for (const key of ['name', 'email', 'subject', 'message']) if (!fields[key]) return reply(422, 'validation');
+  // Applications mirror Odoo's website form: name, email and phone are required; the rest is optional.
+  const required = isApplication ? ['name', 'email', 'phone'] : ['name', 'email', 'subject', 'message'];
+  for (const key of required) if (!fields[key]) return reply(422, 'validation');
   if (!/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(fields.email)) return reply(422, 'validation');
+  if (fields.linkedin && !/^https?:\/\//i.test(fields.linkedin)) fields.linkedin = 'https://' + fields.linkedin;
+  const rawJobId = String(raw.job_id ?? '').trim();
+  if (rawJobId && !/^\d{1,9}$/.test(rawJobId)) return reply(422, 'validation');
+  const jobId = isApplication && rawJobId ? Number(rawJobId) : 0;
 
   let attachment = null;
   if (file) {
     if (file.truncated || file.buffer.length === 0) return reply(422, 'attachment');
     const type = sniff(file.buffer);
-    const allowed = kind === 'application' ? ['pdf'] : ['pdf', 'jpg', 'png', 'webp', 'mp4'];
+    const allowed = isApplication ? ['pdf'] : ['pdf', 'jpg', 'png', 'webp', 'mp4'];
     if (!type || !allowed.includes(type[0])) return reply(422, 'attachment');
-    attachment = { filename: (kind === 'application' ? 'CV' : 'attachment') + '.' + type[0], content: file.buffer, contentType: type[1] };
+    attachment = { filename: (isApplication ? 'CV' : 'attachment') + '.' + type[0], content: file.buffer, contentType: type[1] };
   }
 
+  // 1) Odoo Recruitment: create the applicant (applications only).
+  let odooNote = 'not configured';
+  let odooOk = false;
+  let jobName = '';
+  if (isApplication && odoo.isConfigured(env)) {
+    try {
+      const result = await odoo.createApplication(env, {
+        jobId, name: fields.name, email: fields.email, phone: fields.phone, linkedin: fields.linkedin, message: fields.message,
+        file: attachment ? attachment.content : null,
+        fileName: 'Resume - ' + (fields.name.replace(/[^\p{L}\p{N} _-]/gu, '').trim().slice(0, 60) || 'applicant') + '.pdf',
+      });
+      odooOk = true;
+      jobName = result.jobName;
+      odooNote = 'applicant #' + result.id + ' created' + (attachment && !result.attached ? ' (resume NOT attached, see logs)' : '');
+    } catch (error) {
+      if (error && error.code === 'job') return reply(422, 'job');
+      odoo.reset();
+      odooNote = 'NOT created, see function logs';
+      console.error('Integrated Path application: Odoo request failed:', error && error.message);
+    }
+  }
+
+  // 2) Email to the team (also the safety net when Odoo is unavailable).
   const port = Number(env.SMTP_PORT || 465);
   const transporter = nodemailer.createTransport({
     host: env.SMTP_HOST,
     port,
     secure: env.SMTP_SECURE ? env.SMTP_SECURE === 'true' : port === 465,
     auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
-    connectionTimeout: 8000, greetingTimeout: 8000, socketTimeout: 15000,
+    connectionTimeout: 6000, greetingTimeout: 6000, socketTimeout: 10000,
   });
   const to = env['MAIL_TO_' + kind.toUpperCase()] || env.MAIL_TO || 'info@int-path.com';
+  const position = jobName || fields.job_title || 'General application';
+  const labels = { linkedin: 'LinkedIn profile', message: isApplication ? 'Short introduction' : 'Message' };
   let text = 'Form: ' + kind + '\n\n';
-  for (const [key, value] of Object.entries(fields)) text += key.charAt(0).toUpperCase() + key.slice(1) + ': ' + value + '\n\n';
+  if (isApplication) text += 'Position: ' + position + '\n\n';
+  for (const [key, value] of Object.entries(fields)) {
+    if (!value || key === 'job_title') continue;
+    text += (labels[key] || key.charAt(0).toUpperCase() + key.slice(1)) + ': ' + value + '\n\n';
+  }
+  if (isApplication) text += 'Odoo Recruitment: ' + odooNote + '\n';
+  const subject = isApplication
+    ? '[Application] ' + position + ' - ' + fields.name
+    : '[' + kind.charAt(0).toUpperCase() + kind.slice(1) + '] ' + fields.subject;
 
   try {
     await transporter.sendMail({
       from: { name: 'Integrated Path Website', address: env.SMTP_FROM || env.SMTP_USER },
       to,
       replyTo: { name: fields.name.replace(/["<>]/g, ''), address: fields.email },
-      subject: '[' + kind.charAt(0).toUpperCase() + kind.slice(1) + '] ' + fields.subject,
+      subject,
       text,
       attachments: attachment ? [attachment] : [],
     });
     return reply(200, 'accepted');
   } catch (error) {
     console.error('Integrated Path form: SMTP delivery failed:', error && error.code, error && error.message);
-    return reply(502, 'delivery');
+    return odooOk ? reply(200, 'accepted') : reply(502, 'delivery');
   }
 };

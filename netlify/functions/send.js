@@ -99,6 +99,7 @@ exports.handler = async (event) => {
   const rawJobId = String(raw.job_id ?? '').trim();
   if (rawJobId && !/^\d{1,9}$/.test(rawJobId)) return reply(422, 'validation');
   const jobId = isApplication && rawJobId ? Number(rawJobId) : 0;
+  if (isApplication && fields.job_title && !jobId) return reply(422, 'job');
 
   let attachment = null;
   if (file) {
@@ -112,6 +113,7 @@ exports.handler = async (event) => {
   // 1) Odoo Recruitment: create the applicant (applications only).
   let odooNote = 'not configured';
   let odooOk = false;
+  let odooAttachmentOk = !attachment;
   let jobName = '';
   if (isApplication && odoo.isConfigured(env)) {
     try {
@@ -121,6 +123,7 @@ exports.handler = async (event) => {
         fileName: 'Resume - ' + (fields.name.replace(/[^\p{L}\p{N} _-]/gu, '').trim().slice(0, 60) || 'applicant') + '.pdf',
       });
       odooOk = true;
+      odooAttachmentOk = !attachment || result.attached;
       jobName = result.jobName;
       odooNote = 'applicant #' + result.id + ' created' + (attachment && !result.attached ? ' (resume NOT attached, see logs)' : '');
     } catch (error) {
@@ -128,6 +131,24 @@ exports.handler = async (event) => {
       odoo.reset();
       odooNote = 'NOT created, see function logs';
       console.error('Integrated Path application: Odoo request failed:', error && error.message);
+    }
+  }
+
+  if (kind === 'support' && odoo.isConfigured(env)) {
+    try {
+      const result = await odoo.createTicket(env, {
+        ...fields,
+        file: attachment ? attachment.content : null,
+        fileName: attachment ? attachment.filename : '',
+        mimeType: attachment ? attachment.contentType : '',
+      });
+      odooOk = true;
+      odooAttachmentOk = !attachment || result.attached;
+      odooNote = 'ticket #' + result.id + ' created' + (!odooAttachmentOk ? ' (attachment NOT uploaded; see email attachment)' : '');
+    } catch (error) {
+      odoo.reset();
+      odooNote = 'NOT created; check Helpdesk permissions and field types';
+      console.error('Integrated Path support: Odoo ticket creation failed:', error && error.message);
     }
   }
 
@@ -149,7 +170,7 @@ exports.handler = async (event) => {
     if (!value || key === 'job_title') continue;
     text += (labels[key] || key.charAt(0).toUpperCase() + key.slice(1)) + ': ' + value + '\n\n';
   }
-  if (isApplication) text += 'Odoo Recruitment: ' + odooNote + '\n';
+  if (isApplication || kind === 'support') text += 'Odoo ' + (isApplication ? 'Recruitment' : 'Helpdesk') + ': ' + odooNote + '\n';
   const subject = isApplication
     ? '[Application] ' + position + ' - ' + fields.name
     : '[' + kind.charAt(0).toUpperCase() + kind.slice(1) + '] ' + fields.subject;
@@ -166,6 +187,6 @@ exports.handler = async (event) => {
     return reply(200, 'accepted');
   } catch (error) {
     console.error('Integrated Path form: SMTP delivery failed:', error && error.code, error && error.message);
-    return odooOk ? reply(200, 'accepted') : reply(502, 'delivery');
+    return odooOk ? reply(200, odooAttachmentOk ? 'accepted' : 'attachment_pending') : reply(502, 'delivery');
   }
 };

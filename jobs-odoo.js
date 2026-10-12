@@ -16,7 +16,11 @@
     const card = link.closest('.job-card');
     const select = form.elements.job_id;
     const titleField = form.elements.job_title;
-    if (select) select.value = card && card.dataset.jobId ? card.dataset.jobId : '';
+    if (select) {
+      const id = card && card.dataset.jobId;
+      if (!id || !Array.from(select.options).some(option => option.value === id)) return;
+      select.value = id;
+    }
     if (titleField) titleField.value = card ? card.querySelector('h3').textContent : '';
     form.scrollIntoView({ behavior: 'instant', block: 'center' });
     form.elements.name.focus({ preventScroll: true });

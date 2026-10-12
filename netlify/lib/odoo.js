@@ -37,15 +37,19 @@ async function connect(env) {
 async function createApplication(env, data) {
   const odoo = await connect(env);
   let jobName = '';
+  let departmentId = false;
   if (data.jobId) {
     const jobFields = await odoo.fieldsOf('hr.job');
     const published = jobFields.has('is_published') ? 'is_published' : 'website_published';
-    const jobs = await odoo.call('hr.job', 'search_read', [[['id', '=', data.jobId], [published, '=', true]]], { fields: ['name'], limit: 1 });
+    const jobs = await odoo.call('hr.job', 'search_read', [[['id', '=', data.jobId], [published, '=', true]]], { fields: ['name', 'department_id'].filter(f => jobFields.has(f)), limit: 1 });
     if (!jobs.length) { const error = new Error('Position is not published or no longer exists'); error.code = 'job'; throw error; }
     jobName = String(jobs[0].name || '').slice(0, 200);
+    departmentId = Array.isArray(jobs[0].department_id) ? jobs[0].department_id[0] : false;
   }
   const known = await odoo.fieldsOf('hr.applicant');
+  if (data.jobId && !known.has('job_id')) throw new Error('hr.applicant job_id is unavailable to the integration user');
   const candidate = {
+    department_id: departmentId,
     job_id: data.jobId || false,
     partner_name: data.name,
     email_from: data.email,
@@ -70,4 +74,35 @@ async function createApplication(env, data) {
   return { id, jobName, attached };
 }
 
-module.exports = { isConfigured, createApplication, reset };
+async function createTicket(env, data) {
+  const odoo = await connect(env);
+  const known = await odoo.fieldsOf('helpdesk.ticket');
+  const values = {
+    name: data.subject,
+    description: '<p>' + escapeHtml(data.message).replace(/\r?\n/g, '<br>') + '</p>',
+    x_studio_opened_by: data.name,
+    x_studio_company_name: data.company,
+    x_studio_ticket_email: data.email,
+    x_studio_ticket_phone_1: data.phone,
+  };
+  for (const key of Object.keys(values)) {
+    if (!known.has(key)) throw new Error('Required Helpdesk field unavailable: ' + key);
+  }
+  if (env.ODOO_HELPDESK_TEAM_ID) {
+    const teamId = Number(env.ODOO_HELPDESK_TEAM_ID);
+    if (!Number.isSafeInteger(teamId) || teamId < 1) throw new Error('Invalid Helpdesk team ID');
+    values.team_id = teamId;
+  }
+  const created = await odoo.call('helpdesk.ticket', 'create', [values]);
+  const id = Array.isArray(created) ? created[0] : created;
+  let attached = false;
+  if (data.file) {
+    try {
+      await odoo.call('ir.attachment', 'create', [{name: data.fileName, datas: data.file.toString('base64'), res_model: 'helpdesk.ticket', res_id: id, type: 'binary', mimetype: data.mimeType}]);
+      attached = true;
+    } catch (error) { console.error('Integrated Path support: attachment upload failed'); }
+  }
+  return { id, attached };
+}
+
+module.exports = { isConfigured, createApplication, createTicket, reset };

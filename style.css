@@ -208,3 +208,6 @@ html[dir="rtl"] .support-numbers>a{direction:ltr;unicode-bidi:isolate;text-align
 @media(max-width:700px){.header-contact{display:none}.window-bar .window-title{font-size:10px}.dock-launcher kbd{display:none}.dock-launcher button{min-height:40px}.window-actions .menu-toggle{min-height:36px}.guided-start{gap:12px}.guided-start>.button{width:100%}.block-command{padding-block:8px}.explorer-collapsed .explorer.open{display:flex}.needs-grid article{padding:22px}.breadcrumb{padding-block:9px}.team-context{font-size:14px}.command-dock form{flex-wrap:wrap}.command-dock input{flex-basis:50%}}
 
 .form-trap{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}form[data-email-form]{display:grid;gap:18px}form[data-email-form] label{display:grid;gap:8px}form[data-email-form] button{justify-self:start}form[data-email-form] [role=status]{margin:0}button:disabled{opacity:.65;cursor:wait}
+
+/* Balance the bottom-row artwork within the existing sprite cells. */
+.partner-card:nth-child(n+9) .partner-logo{transform:translateY(-12%)}

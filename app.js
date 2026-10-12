@@ -24,8 +24,8 @@ const suggestions=document.getElementById('completions');
 let history=[];try{history=JSON.parse(sessionStorage.getItem('ip-command-history')||'[]');if(!Array.isArray(history))history=[];history=history.filter(v=>typeof v==='string').slice(-50);}catch{}
 let historyIndex=history.length;
 let pendingInput='';
-function setTheme(theme){const value=theme==='light'?'light':'dark';document.documentElement.dataset.theme=value;try{localStorage.setItem('ip-terminal-theme',value);}catch{}const toggle=document.querySelector('.theme-toggle');toggle.textContent=tr(value==='light'?'Dark':'Light');toggle.setAttribute('aria-label',tr('Switch to '+(value==='light'?'dark':'light')+' theme'));}
-let savedTheme='dark';try{savedTheme=localStorage.getItem('ip-terminal-theme')||'dark';}catch{}setTheme(savedTheme);
+function setTheme(theme){const value=theme==='light'?'light':'dark';document.documentElement.dataset.theme=value;try{localStorage.setItem('ip-terminal-theme-v2',value);}catch{}const toggle=document.querySelector('.theme-toggle');toggle.textContent=tr(value==='light'?'Dark':'Light');toggle.setAttribute('aria-label',tr('Switch to '+(value==='light'?'dark':'light')+' theme'));}
+let savedTheme='light';try{savedTheme=localStorage.getItem('ip-terminal-theme-v2')||'light';}catch{}setTheme(savedTheme);
 document.querySelector('.theme-toggle').addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='light'?'dark':'light'));
 function focusCommand(){document.body.classList.remove('dock-closed');document.querySelector('.dock-open')?.setAttribute('aria-expanded','true');input.focus();input.select();}
 document.querySelector('.command-focus').addEventListener('click',focusCommand);

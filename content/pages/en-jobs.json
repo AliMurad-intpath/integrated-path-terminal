@@ -1,0 +1,47 @@
+{
+  "title": "Jobs | Integrated Path",
+  "description": "Explore job offers at Integrated Path in Baghdad.",
+  "sections": [
+    {
+      "id": "output-1",
+      "title": "Our Job Offers",
+      "texts": [
+        {
+          "id": "n2-t0",
+          "label": "Careers at Integrated Path",
+          "value": "Careers at Integrated Path"
+        },
+        {
+          "id": "n3-t0",
+          "label": "Our",
+          "value": "Our"
+        },
+        {
+          "id": "n4-t0",
+          "label": "Job Offers",
+          "value": "Job Offers"
+        },
+        {
+          "id": "n6-t0",
+          "label": "Explore our listed roles and send your application below. Our tea",
+          "value": "Explore our listed roles and send your application below. Our team will confirm current availability."
+        }
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "output-2",
+      "title": "Section 2",
+      "texts": [
+        {
+          "id": "n8-t0",
+          "label": "No roles match your search. Try another job title or department.",
+          "value": "No roles match your search. Try another job title or department."
+        }
+      ],
+      "links": [],
+      "images": []
+    }
+  ]
+}

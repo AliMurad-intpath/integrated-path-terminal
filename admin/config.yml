@@ -1,0 +1,1630 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "AliMurad-intpath/integrated-path-terminal",
+    "branch": "main"
+  },
+  "publish_mode": "editorial_workflow",
+  "media_folder": "assets/uploads",
+  "public_folder": "/assets/uploads",
+  "site_url": "https://int-path.com",
+  "display_url": "https://int-path.com",
+  "logo_url": "/assets/company-logo.png",
+  "collections": [
+    {
+      "name": "pages_en",
+      "label": "Pages · English",
+      "files": [
+        {
+          "name": "en-home",
+          "label": "Home — English",
+          "file": "content/pages/en-home.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "en-about-us",
+          "label": "About us — English",
+          "file": "content/pages/en-about-us.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "en-services",
+          "label": "Services — English",
+          "file": "content/pages/en-services.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "en-contactus",
+          "label": "Contact — English",
+          "file": "content/pages/en-contactus.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "en-our-support",
+          "label": "Support — English",
+          "file": "content/pages/en-our-support.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "en-jobs",
+          "label": "Jobs — English",
+          "file": "content/pages/en-jobs.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pages_ar",
+      "label": "Pages · العربية",
+      "files": [
+        {
+          "name": "ar-home",
+          "label": "Home — العربية",
+          "file": "content/pages/ar-home.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "ar-about-us",
+          "label": "About us — العربية",
+          "file": "content/pages/ar-about-us.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "ar-services",
+          "label": "Services — العربية",
+          "file": "content/pages/ar-services.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "ar-contactus",
+          "label": "Contact — العربية",
+          "file": "content/pages/ar-contactus.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "ar-our-support",
+          "label": "Support — العربية",
+          "file": "content/pages/ar-our-support.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        },
+        {
+          "name": "ar-jobs",
+          "label": "Jobs — العربية",
+          "file": "content/pages/ar-jobs.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Browser title",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Search-engine description",
+              "widget": "text"
+            },
+            {
+              "name": "sections",
+              "label": "Page sections",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "id",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "title",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "texts",
+                  "label": "Text",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Text",
+                      "widget": "text"
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "url",
+                      "label": "Destination",
+                      "widget": "string",
+                      "required": true
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                },
+                {
+                  "name": "images",
+                  "label": "Images",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "label",
+                      "widget": "hidden"
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image",
+                      "required": false,
+                      "allow_multiple": false,
+                      "hint": "Leave an optional logo image blank to keep its original artwork."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "summary": "{{fields.label}}",
+                  "allow_add": false,
+                  "required": false
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "allow_add": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "team",
+      "label": "Team members",
+      "files": [
+        {
+          "name": "team",
+          "label": "Team directory · الفريق",
+          "file": "content/team.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "members",
+              "label": "Members",
+              "widget": "list",
+              "fields": [
+                {
+                  "name": "name",
+                  "label": "Name · keep native spelling",
+                  "widget": "string",
+                  "required": true
+                },
+                {
+                  "name": "role",
+                  "label": "Role · English",
+                  "widget": "string",
+                  "required": true
+                },
+                {
+                  "name": "role_ar",
+                  "label": "Role · العربية",
+                  "widget": "string",
+                  "required": true
+                },
+                {
+                  "name": "image",
+                  "label": "Photo",
+                  "widget": "image",
+                  "allow_multiple": false
+                },
+                {
+                  "name": "visible",
+                  "label": "Show on website",
+                  "widget": "boolean",
+                  "default": true
+                },
+                {
+                  "name": "song_url",
+                  "label": "YouTube URL",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "song_title",
+                  "label": "Song title · native spelling",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "song_artist",
+                  "label": "Artist · native spelling",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "department",
+                  "widget": "hidden",
+                  "default": ""
+                },
+                {
+                  "name": "youtube_title",
+                  "widget": "hidden",
+                  "default": ""
+                },
+                {
+                  "name": "youtube_channel",
+                  "widget": "hidden",
+                  "default": ""
+                }
+              ],
+              "collapsed": true,
+              "summary": "{{fields.name}}",
+              "hint": "Drag members to reorder. Hide a member to remove them from both languages, search and song commands."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "appearance",
+      "label": "Fonts & sizes",
+      "files": [
+        {
+          "name": "typography",
+          "label": "Global typography",
+          "file": "content/typography.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "english_font",
+              "label": "English font",
+              "widget": "select",
+              "options": [
+                {
+                  "label": "IBM Plex Sans · current",
+                  "value": "sans"
+                },
+                {
+                  "label": "IBM Plex Mono · terminal",
+                  "value": "mono"
+                },
+                {
+                  "label": "System font",
+                  "value": "system"
+                }
+              ]
+            },
+            {
+              "name": "arabic_font",
+              "label": "Arabic font",
+              "widget": "select",
+              "options": [
+                {
+                  "label": "IBM Plex Sans Arabic · current",
+                  "value": "plex"
+                },
+                {
+                  "label": "Tahoma / system Arabic",
+                  "value": "system"
+                }
+              ]
+            },
+            {
+              "name": "body_size",
+              "label": "Body text size (px)",
+              "widget": "number",
+              "value_type": "int",
+              "min": 14,
+              "max": 20,
+              "step": 1
+            },
+            {
+              "name": "heading_scale",
+              "label": "Heading size multiplier",
+              "hint": "1 is the current size. Applies proportionally on mobile and desktop.",
+              "widget": "number",
+              "value_type": "float",
+              "min": 0.85,
+              "max": 1.2,
+              "step": 0.05
+            },
+            {
+              "name": "body_weight",
+              "label": "body weight",
+              "widget": "select",
+              "options": [
+                400,
+                500,
+                600,
+                700
+              ]
+            },
+            {
+              "name": "heading_weight",
+              "label": "heading weight",
+              "widget": "select",
+              "options": [
+                400,
+                500,
+                600,
+                700
+              ]
+            },
+            {
+              "name": "link_weight",
+              "label": "link weight",
+              "widget": "select",
+              "options": [
+                400,
+                500,
+                600,
+                700
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

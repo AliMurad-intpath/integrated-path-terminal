@@ -1,0 +1,988 @@
+{
+  "title": "الرئيسية | المسار المتكامل",
+  "description": "المسار المتكامل، شريك Odoo وحلول التحول الرقمي وتقنية المعلومات في العراق.",
+  "sections": [
+    {
+      "id": "output-1",
+      "title": "شريك رائد في العراق لحلول Odoo والتحول الرقمي",
+      "texts": [
+        {
+          "id": "n3-t0",
+          "label": "المسار",
+          "value": "المسار"
+        },
+        {
+          "id": "n4-t0",
+          "label": "المتكامل",
+          "value": "المتكامل"
+        },
+        {
+          "id": "n6-t0",
+          "label": "ما وراء التقنية / بغداد، العراق",
+          "value": "ما وراء التقنية / بغداد، العراق"
+        },
+        {
+          "id": "n7-t0",
+          "label": "شريك رائد في العراق لحلول",
+          "value": "شريك رائد في العراق لحلول"
+        },
+        {
+          "id": "n7-t2",
+          "label": "والتحول الرقمي",
+          "value": "والتحول الرقمي"
+        },
+        {
+          "id": "n8-t0",
+          "label": "Odoo",
+          "value": "Odoo"
+        },
+        {
+          "id": "n9-t0",
+          "label": "نبتكر حلولاً تواكب تحديات المستقبل.",
+          "value": "نبتكر حلولاً تواكب تحديات المستقبل."
+        },
+        {
+          "id": "n11-t0",
+          "label": "ناقش مشروعك عبر WhatsApp",
+          "value": "ناقش مشروعك عبر WhatsApp"
+        },
+        {
+          "id": "n12-t0",
+          "label": "من نحن",
+          "value": "من نحن"
+        },
+        {
+          "id": "n14-t0",
+          "label": "company.json",
+          "value": "company.json"
+        },
+        {
+          "id": "n15-t0",
+          "label": "للعرض فقط",
+          "value": "للعرض فقط"
+        },
+        {
+          "id": "n17-t0",
+          "label": "الشعار",
+          "value": "الشعار"
+        },
+        {
+          "id": "n19-t0",
+          "label": "company-logo.png",
+          "value": "company-logo.png"
+        },
+        {
+          "id": "n20-t0",
+          "label": "الموقع",
+          "value": "الموقع"
+        },
+        {
+          "id": "n21-t0",
+          "label": "\"بغداد، العراق\"",
+          "value": "\"بغداد، العراق\""
+        },
+        {
+          "id": "n22-t0",
+          "label": "التخصص",
+          "value": "التخصص"
+        },
+        {
+          "id": "n23-t0",
+          "label": "\"Odoo والتحول الرقمي\"",
+          "value": "\"Odoo والتحول الرقمي\""
+        },
+        {
+          "id": "n24-t0",
+          "label": "العملاء",
+          "value": "العملاء"
+        },
+        {
+          "id": "n26-t0",
+          "label": "\"130+\"",
+          "value": "\"130+\""
+        },
+        {
+          "id": "n27-t0",
+          "label": "تعرّف على الشركة",
+          "value": "تعرّف على الشركة"
+        },
+        {
+          "id": "n29-t0",
+          "label": "لا تعرف من أين تبدأ؟",
+          "value": "لا تعرف من أين تبدأ؟"
+        },
+        {
+          "id": "n30-t0",
+          "label": "اكتشف الحل المناسب في 3 أسئلة",
+          "value": "اكتشف الحل المناسب في 3 أسئلة"
+        }
+      ],
+      "links": [
+        {
+          "id": "n11",
+          "label": "ناقش مشروعك عبر WhatsApp",
+          "url": "https://wa.me/9647511997799"
+        },
+        {
+          "id": "n12",
+          "label": "من نحن",
+          "url": "ar/about-us/?v=netlify-5"
+        },
+        {
+          "id": "n19",
+          "label": "company-logo.png ↗",
+          "url": "assets/company-logo.png?v=blue"
+        },
+        {
+          "id": "n27",
+          "label": "تعرّف على الشركة",
+          "url": "ar/about-us/?v=netlify-5"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "output-2",
+      "title": "Section 2",
+      "texts": [
+        {
+          "id": "n32-t0",
+          "label": "رؤيتنا للعمل",
+          "value": "رؤيتنا للعمل"
+        },
+        {
+          "id": "n33-t0",
+          "label": "في المسار المتكامل، ننظر إلى تطوير البرمجيات باعتباره وسيلة لفهم ",
+          "value": "في المسار المتكامل، ننظر إلى تطوير البرمجيات باعتباره وسيلة لفهم أعمال عملائنا وتحويل أفكارهم إلى حلول تخدم أهدافهم، وليس مجرد كتابة أكواد أو إضافة وظائف."
+        },
+        {
+          "id": "n34-t0",
+          "label": "كل مشروع فرصة لتحقيق رؤيتك وطموحاتك. نطوّر برمجيات تراعي احتياجات",
+          "value": "كل مشروع فرصة لتحقيق رؤيتك وطموحاتك. نطوّر برمجيات تراعي احتياجات مستخدميها وتنسجم مع طبيعة عملك وأهدافه."
+        }
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "output-3",
+      "title": "شركاؤنا",
+      "texts": [
+        {
+          "id": "n38-t0",
+          "label": "شراكات تعزز خبرتنا",
+          "value": "شراكات تعزز خبرتنا"
+        },
+        {
+          "id": "n39-t0",
+          "label": "شركاؤنا",
+          "value": "شركاؤنا"
+        },
+        {
+          "id": "n45-t0",
+          "label": "Microsoft",
+          "value": "Microsoft"
+        },
+        {
+          "id": "n46-t0",
+          "label": "microsoft.com",
+          "value": "microsoft.com"
+        },
+        {
+          "id": "n51-t0",
+          "label": "Odoo",
+          "value": "Odoo"
+        },
+        {
+          "id": "n52-t0",
+          "label": "odoo.com",
+          "value": "odoo.com"
+        },
+        {
+          "id": "n57-t0",
+          "label": "Dell EMC",
+          "value": "Dell EMC"
+        },
+        {
+          "id": "n58-t0",
+          "label": "dell.com",
+          "value": "dell.com"
+        },
+        {
+          "id": "n63-t0",
+          "label": "Bitdefender",
+          "value": "Bitdefender"
+        },
+        {
+          "id": "n64-t0",
+          "label": "bitdefender.com",
+          "value": "bitdefender.com"
+        },
+        {
+          "id": "n69-t0",
+          "label": "McAfee",
+          "value": "McAfee"
+        },
+        {
+          "id": "n70-t0",
+          "label": "mcafee.com",
+          "value": "mcafee.com"
+        },
+        {
+          "id": "n75-t0",
+          "label": "VMware",
+          "value": "VMware"
+        },
+        {
+          "id": "n76-t0",
+          "label": "vmware.com",
+          "value": "vmware.com"
+        },
+        {
+          "id": "n81-t0",
+          "label": "Fortinet",
+          "value": "Fortinet"
+        },
+        {
+          "id": "n82-t0",
+          "label": "fortinet.com",
+          "value": "fortinet.com"
+        },
+        {
+          "id": "n87-t0",
+          "label": "Veeam",
+          "value": "Veeam"
+        },
+        {
+          "id": "n88-t0",
+          "label": "veeam.com",
+          "value": "veeam.com"
+        },
+        {
+          "id": "n93-t0",
+          "label": "SolarWinds",
+          "value": "SolarWinds"
+        },
+        {
+          "id": "n94-t0",
+          "label": "solarwinds.com",
+          "value": "solarwinds.com"
+        },
+        {
+          "id": "n99-t0",
+          "label": "Ameyo",
+          "value": "Ameyo"
+        },
+        {
+          "id": "n100-t0",
+          "label": "ameyo.com",
+          "value": "ameyo.com"
+        },
+        {
+          "id": "n105-t0",
+          "label": "Edimax",
+          "value": "Edimax"
+        },
+        {
+          "id": "n106-t0",
+          "label": "edimax.com",
+          "value": "edimax.com"
+        },
+        {
+          "id": "n111-t0",
+          "label": "RansNet",
+          "value": "RansNet"
+        },
+        {
+          "id": "n112-t0",
+          "label": "ransnet.com",
+          "value": "ransnet.com"
+        }
+      ],
+      "links": [
+        {
+          "id": "n41",
+          "label": "Microsoftmicrosoft.com↗",
+          "url": "https://www.microsoft.com/"
+        },
+        {
+          "id": "n47",
+          "label": "Odooodoo.com↗",
+          "url": "https://www.odoo.com/"
+        },
+        {
+          "id": "n53",
+          "label": "Dell EMCdell.com↗",
+          "url": "https://www.dell.com/"
+        },
+        {
+          "id": "n59",
+          "label": "Bitdefenderbitdefender.com↗",
+          "url": "https://www.bitdefender.com/"
+        },
+        {
+          "id": "n65",
+          "label": "McAfeemcafee.com↗",
+          "url": "https://www.mcafee.com/"
+        },
+        {
+          "id": "n71",
+          "label": "VMwarevmware.com↗",
+          "url": "https://www.vmware.com/"
+        },
+        {
+          "id": "n77",
+          "label": "Fortinetfortinet.com↗",
+          "url": "https://www.fortinet.com/"
+        },
+        {
+          "id": "n83",
+          "label": "Veeamveeam.com↗",
+          "url": "https://www.veeam.com/"
+        },
+        {
+          "id": "n89",
+          "label": "SolarWindssolarwinds.com↗",
+          "url": "https://www.solarwinds.com/"
+        },
+        {
+          "id": "n95",
+          "label": "Ameyoameyo.com↗",
+          "url": "https://www.ameyo.com/"
+        },
+        {
+          "id": "n101",
+          "label": "Edimaxedimax.com↗",
+          "url": "https://www.edimax.com/edimax/me/"
+        },
+        {
+          "id": "n107",
+          "label": "RansNetransnet.com↗",
+          "url": "https://www.ransnet.com/"
+        }
+      ],
+      "images": [
+        {
+          "id": "n9000",
+          "label": "Microsoft logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9001",
+          "label": "Odoo logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9002",
+          "label": "Dell EMC logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9003",
+          "label": "Bitdefender logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9004",
+          "label": "McAfee logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9005",
+          "label": "VMware logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9006",
+          "label": "Fortinet logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9007",
+          "label": "Veeam logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9008",
+          "label": "SolarWinds logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9009",
+          "label": "Ameyo logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9010",
+          "label": "Edimax logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9011",
+          "label": "RansNet logo",
+          "src": "",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "id": "output-4",
+      "title": "مجالات خبرتنا",
+      "texts": [
+        {
+          "id": "n117-t0",
+          "label": "ما نقدمه",
+          "value": "ما نقدمه"
+        },
+        {
+          "id": "n118-t0",
+          "label": "مجالات خبرتنا",
+          "value": "مجالات خبرتنا"
+        },
+        {
+          "id": "n119-t0",
+          "label": "حلول متكاملة لبنيتك التقنية وعملياتك وتجربة عملائك.",
+          "value": "حلول متكاملة لبنيتك التقنية وعملياتك وتجربة عملائك."
+        },
+        {
+          "id": "n123-t0",
+          "label": "01",
+          "value": "01"
+        },
+        {
+          "id": "n124-t0",
+          "label": "البنية التحتية لتقنية المعلومات",
+          "value": "البنية التحتية لتقنية المعلومات"
+        },
+        {
+          "id": "n125-t0",
+          "label": "أجهزة وشبكات وخدمات سحابية موثوقة تمنح أعمالك أساساً تقنياً متينا",
+          "value": "أجهزة وشبكات وخدمات سحابية موثوقة تمنح أعمالك أساساً تقنياً متيناً."
+        },
+        {
+          "id": "n126-t0",
+          "label": "تعرّف على الخدمة",
+          "value": "تعرّف على الخدمة"
+        },
+        {
+          "id": "n129-t0",
+          "label": "02",
+          "value": "02"
+        },
+        {
+          "id": "n130-t0",
+          "label": "أتمتة الأعمال",
+          "value": "أتمتة الأعمال"
+        },
+        {
+          "id": "n131-t0",
+          "label": "نحسّن إجراءات العمل ونؤتمت المهام لرفع الكفاءة وخفض التكاليف ودعم",
+          "value": "نحسّن إجراءات العمل ونؤتمت المهام لرفع الكفاءة وخفض التكاليف ودعم نمو أعمالك."
+        },
+        {
+          "id": "n132-t0",
+          "label": "تعرّف على الخدمة",
+          "value": "تعرّف على الخدمة"
+        },
+        {
+          "id": "n135-t0",
+          "label": "03",
+          "value": "03"
+        },
+        {
+          "id": "n136-t0",
+          "label": "تطبيقات الجوال",
+          "value": "تطبيقات الجوال"
+        },
+        {
+          "id": "n137-t0",
+          "label": "تطبيقات جوال سهلة الاستخدام تعزز تفاعل المستخدمين وتُحسّن كفاءة ا",
+          "value": "تطبيقات جوال سهلة الاستخدام تعزز تفاعل المستخدمين وتُحسّن كفاءة العمل."
+        },
+        {
+          "id": "n138-t0",
+          "label": "تعرّف على الخدمة",
+          "value": "تعرّف على الخدمة"
+        },
+        {
+          "id": "n141-t0",
+          "label": "04",
+          "value": "04"
+        },
+        {
+          "id": "n142-t0",
+          "label": "أمن المعلومات",
+          "value": "أمن المعلومات"
+        },
+        {
+          "id": "n143-t0",
+          "label": "حلول أمنية متقدمة، منها Bitdefender، لحماية أعمالك من التهديدات ا",
+          "value": "حلول أمنية متقدمة، منها Bitdefender، لحماية أعمالك من التهديدات المتجددة."
+        },
+        {
+          "id": "n144-t0",
+          "label": "تعرّف على الخدمة",
+          "value": "تعرّف على الخدمة"
+        },
+        {
+          "id": "n147-t0",
+          "label": "05",
+          "value": "05"
+        },
+        {
+          "id": "n148-t0",
+          "label": "تخطيط موارد المؤسسة وإدارة علاقات العملاء (ERP وCRM)",
+          "value": "تخطيط موارد المؤسسة وإدارة علاقات العملاء (ERP وCRM)"
+        },
+        {
+          "id": "n149-t0",
+          "label": "حلول Odoo مخصصة تربط عمليات شركتك وتدعم نموها.",
+          "value": "حلول Odoo مخصصة تربط عمليات شركتك وتدعم نموها."
+        },
+        {
+          "id": "n150-t0",
+          "label": "تعرّف على الخدمة",
+          "value": "تعرّف على الخدمة"
+        },
+        {
+          "id": "n153-t0",
+          "label": "06",
+          "value": "06"
+        },
+        {
+          "id": "n154-t0",
+          "label": "أنظمة الاتصالات الهاتفية (IP PBX)",
+          "value": "أنظمة الاتصالات الهاتفية (IP PBX)"
+        },
+        {
+          "id": "n155-t0",
+          "label": "حلول اتصال عبر الإنترنت (VoIP) لتحسين التواصل وخفض التكاليف والتو",
+          "value": "حلول اتصال عبر الإنترنت (VoIP) لتحسين التواصل وخفض التكاليف والتوسع مع نمو أعمالك."
+        },
+        {
+          "id": "n156-t0",
+          "label": "تعرّف على الخدمة",
+          "value": "تعرّف على الخدمة"
+        },
+        {
+          "id": "n158-t0",
+          "label": "خدماتنا",
+          "value": "خدماتنا"
+        }
+      ],
+      "links": [
+        {
+          "id": "n126",
+          "label": "تعرّف على الخدمة",
+          "url": "ar/services/?v=netlify-5"
+        },
+        {
+          "id": "n132",
+          "label": "تعرّف على الخدمة",
+          "url": "ar/services/?v=netlify-5"
+        },
+        {
+          "id": "n138",
+          "label": "تعرّف على الخدمة",
+          "url": "ar/services/?v=netlify-5"
+        },
+        {
+          "id": "n144",
+          "label": "تعرّف على الخدمة",
+          "url": "ar/services/?v=netlify-5"
+        },
+        {
+          "id": "n150",
+          "label": "تعرّف على الخدمة",
+          "url": "ar/services/?v=netlify-5"
+        },
+        {
+          "id": "n156",
+          "label": "تعرّف على الخدمة",
+          "url": "ar/services/?v=netlify-5"
+        },
+        {
+          "id": "n158",
+          "label": "خدماتنا",
+          "url": "ar/services/?v=netlify-5"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "output-5",
+      "title": "طوّر أعمالك مع خبراء Odoo المعتمدين!",
+      "texts": [
+        {
+          "id": "n161-t0",
+          "label": "أعمال مترابطة",
+          "value": "أعمال مترابطة"
+        },
+        {
+          "id": "n162-t0",
+          "label": "طوّر أعمالك مع",
+          "value": "طوّر أعمالك مع"
+        },
+        {
+          "id": "n163-t0",
+          "label": "خبراء Odoo المعتمدين!",
+          "value": "خبراء Odoo المعتمدين!"
+        },
+        {
+          "id": "n164-t0",
+          "label": "وحّد عمليات شركتك في نظام متكامل. يتولى فريقنا تطبيق النظام وتخصي",
+          "value": "وحّد عمليات شركتك في نظام متكامل. يتولى فريقنا تطبيق النظام وتخصيصه ودعمه بما يناسب احتياجاتك."
+        },
+        {
+          "id": "n165-t0",
+          "label": "تعرّف على خدمات تطبيق Odoo",
+          "value": "تعرّف على خدمات تطبيق Odoo"
+        },
+        {
+          "id": "n171-t0",
+          "label": "المالية والمحاسبة",
+          "value": "المالية والمحاسبة"
+        },
+        {
+          "id": "n172-t0",
+          "label": "المبيعات وإدارة علاقات العملاء",
+          "value": "المبيعات وإدارة علاقات العملاء"
+        },
+        {
+          "id": "n173-t0",
+          "label": "المخزون والمشتريات",
+          "value": "المخزون والمشتريات"
+        },
+        {
+          "id": "n174-t0",
+          "label": "الموارد البشرية والعمليات",
+          "value": "الموارد البشرية والعمليات"
+        },
+        {
+          "id": "n175-t0",
+          "label": "منصة واحدة لعمليات متكاملة.",
+          "value": "منصة واحدة لعمليات متكاملة."
+        }
+      ],
+      "links": [
+        {
+          "id": "n165",
+          "label": "تعرّف على خدمات تطبيق Odoo",
+          "url": "ar/services/?v=netlify-5#odoo"
+        }
+      ],
+      "images": [
+        {
+          "id": "n168",
+          "label": "Odoo",
+          "src": "/assets/odoo-white.png",
+          "alt": "Odoo"
+        },
+        {
+          "id": "n169",
+          "label": "Odoo",
+          "src": "/assets/odoo-color.png",
+          "alt": "Odoo"
+        }
+      ]
+    },
+    {
+      "id": "output-6",
+      "title": "أكثر من 130 عميلاً يثقون بنا",
+      "texts": [
+        {
+          "id": "n179-t0",
+          "label": "علاقات نعتز بها",
+          "value": "علاقات نعتز بها"
+        },
+        {
+          "id": "n180-t0",
+          "label": "أكثر من 130 عميلاً يثقون بنا",
+          "value": "أكثر من 130 عميلاً يثقون بنا"
+        },
+        {
+          "id": "n181-t0",
+          "label": "لأن أعمالهم في أيدٍ أمينة.",
+          "value": "لأن أعمالهم في أيدٍ أمينة."
+        }
+      ],
+      "links": [],
+      "images": [
+        {
+          "id": "n183",
+          "label": "Netgate Iraq",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n184",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n185",
+          "label": "Artouch",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n186",
+          "label": "SEDO",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n187",
+          "label": "Allawi Group",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n188",
+          "label": "Al-Shiffa",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n189",
+          "label": "Iraq Steel",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n190",
+          "label": "Warth",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n191",
+          "label": "Ammar Alqassab",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n192",
+          "label": "Norwegian People’s Aid",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n193",
+          "label": "Astico Store",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n194",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n195",
+          "label": "Ibraheem Al Qurashi",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n196",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n197",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n198",
+          "label": "Elite Men’s Fashion",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n199",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n200",
+          "label": "Digital Link",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n201",
+          "label": "Ta3leem",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n202",
+          "label": "Fay",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n203",
+          "label": "Veridos",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n204",
+          "label": "ASCO",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n205",
+          "label": "IW",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n206",
+          "label": "Onyxes Technologies",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n207",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n208",
+          "label": "Mustaqbal Al-Emaar",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n209",
+          "label": "Aleen Beauty",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n210",
+          "label": "Algheed Global Company",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n211",
+          "label": "Dashti Sanat Company",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n212",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n213",
+          "label": "Masar Al-Tanmya",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n214",
+          "label": "Green Technology",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n215",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n216",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n217",
+          "label": "Bejaa",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n218",
+          "label": "شعار عميل",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n219",
+          "label": "Farabi Pharma",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n220",
+          "label": "Eblal",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n221",
+          "label": "Al-Mouyasser",
+          "src": "",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "id": "output-7",
+      "title": "فريقنا المتخصص جاهز لمساعدتك وحل مشكلاتك",
+      "texts": [
+        {
+          "id": "n224-t0",
+          "label": "المسار المتكامل / ما وراء التقنية",
+          "value": "المسار المتكامل / ما وراء التقنية"
+        },
+        {
+          "id": "n225-t0",
+          "label": "فريقنا المتخصص جاهز لمساعدتك وحل مشكلاتك",
+          "value": "فريقنا المتخصص جاهز لمساعدتك وحل مشكلاتك"
+        },
+        {
+          "id": "n226-t0",
+          "label": "الدعم الفني",
+          "value": "الدعم الفني"
+        }
+      ],
+      "links": [
+        {
+          "id": "n226",
+          "label": "الدعم الفني",
+          "url": "ar/our-support/?v=netlify-5"
+        }
+      ],
+      "images": []
+    }
+  ]
+}

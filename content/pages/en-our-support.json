@@ -1,0 +1,178 @@
+{
+  "title": "Support | Integrated Path",
+  "description": "Find the help you need from Integrated Path technical support.",
+  "sections": [
+    {
+      "id": "output-1",
+      "title": "Explore Our ResourcesAnd Get the Support You Need.",
+      "texts": [
+        {
+          "id": "n2-t0",
+          "label": "Support",
+          "value": "Support"
+        },
+        {
+          "id": "n3-t0",
+          "label": "Explore Our Resources",
+          "value": "Explore Our Resources"
+        },
+        {
+          "id": "n3-t2",
+          "label": "And",
+          "value": "And"
+        },
+        {
+          "id": "n5-t0",
+          "label": "Get the Support You Need.",
+          "value": "Get the Support You Need."
+        },
+        {
+          "id": "n7-t0",
+          "label": "Our team is here to help you get back to work.",
+          "value": "Our team is here to help you get back to work."
+        }
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "output-2",
+      "title": "Need Help?",
+      "texts": [
+        {
+          "id": "n11-t0",
+          "label": "Technical support",
+          "value": "Technical support"
+        },
+        {
+          "id": "n12-t0",
+          "label": "Need Help?",
+          "value": "Need Help?"
+        },
+        {
+          "id": "n13-t0",
+          "label": "Please let us know how we can resolve the issues you encounter.",
+          "value": "Please let us know how we can resolve the issues you encounter."
+        },
+        {
+          "id": "n15-t0",
+          "label": "+964 781 799 7799",
+          "value": "+964 781 799 7799"
+        },
+        {
+          "id": "n16-t0",
+          "label": "+964 771 799 7799",
+          "value": "+964 771 799 7799"
+        },
+        {
+          "id": "n17-t0",
+          "label": "+964 751 799 7799",
+          "value": "+964 751 799 7799"
+        },
+        {
+          "id": "n19-t0",
+          "label": "Submit a support request",
+          "value": "Submit a support request"
+        },
+        {
+          "id": "n20-t0",
+          "label": "Help us understand the issue.",
+          "value": "Help us understand the issue."
+        },
+        {
+          "id": "n21-t0",
+          "label": "The support form collects the details below and accepts a screens",
+          "value": "The support form collects the details below and accepts a screenshot or video attachment."
+        },
+        {
+          "id": "n24-t0",
+          "label": "Your details",
+          "value": "Your details"
+        },
+        {
+          "id": "n25-t0",
+          "label": "Company name, your name, email, and phone number.",
+          "value": "Company name, your name, email, and phone number."
+        },
+        {
+          "id": "n27-t0",
+          "label": "The issue",
+          "value": "The issue"
+        },
+        {
+          "id": "n28-t0",
+          "label": "A subject and a description of the problem you are experiencing.",
+          "value": "A subject and a description of the problem you are experiencing."
+        },
+        {
+          "id": "n30-t0",
+          "label": "A screenshot or video",
+          "value": "A screenshot or video"
+        },
+        {
+          "id": "n31-t0",
+          "label": "Include the relevant error message or behavior. Remove passwords ",
+          "value": "Include the relevant error message or behavior. Remove passwords and sensitive information."
+        },
+        {
+          "id": "n35-t0",
+          "label": "Your name *",
+          "value": "Your name *"
+        },
+        {
+          "id": "n37-t0",
+          "label": "Company (optional)",
+          "value": "Company (optional)"
+        },
+        {
+          "id": "n39-t0",
+          "label": "Email address *",
+          "value": "Email address *"
+        },
+        {
+          "id": "n41-t0",
+          "label": "Phone (optional)",
+          "value": "Phone (optional)"
+        },
+        {
+          "id": "n43-t0",
+          "label": "Subject *",
+          "value": "Subject *"
+        },
+        {
+          "id": "n45-t0",
+          "label": "Message *",
+          "value": "Message *"
+        },
+        {
+          "id": "n46-t0",
+          "label": "PDF, image or MP4 attachment (optional, up to 4 MB)",
+          "value": "PDF, image or MP4 attachment (optional, up to 4 MB)"
+        },
+        {
+          "id": "n48-t0",
+          "label": "Send request",
+          "value": "Send request"
+        }
+      ],
+      "links": [
+        {
+          "id": "n15",
+          "label": "+964 781 799 7799",
+          "url": "tel:+9647817997799"
+        },
+        {
+          "id": "n16",
+          "label": "+964 771 799 7799",
+          "url": "tel:+9647717997799"
+        },
+        {
+          "id": "n17",
+          "label": "+964 751 799 7799",
+          "url": "tel:+9647517997799"
+        }
+      ],
+      "images": []
+    }
+  ]
+}

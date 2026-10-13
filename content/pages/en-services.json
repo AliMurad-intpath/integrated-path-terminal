@@ -1,0 +1,358 @@
+{
+  "title": "Our Services | Integrated Path",
+  "description": "Explore Integrated Path IT services and its Odoo implementation methodology.",
+  "sections": [
+    {
+      "id": "output-1",
+      "title": "Discover Our Services",
+      "texts": [
+        {
+          "id": "n2-t0",
+          "label": "Our Services",
+          "value": "Our Services"
+        },
+        {
+          "id": "n3-t0",
+          "label": "Discover",
+          "value": "Discover"
+        },
+        {
+          "id": "n4-t0",
+          "label": "Our Services",
+          "value": "Our Services"
+        },
+        {
+          "id": "n6-t0",
+          "label": "Explore Our Wide Range of Innovative Solutions Tailored to Your N",
+          "value": "Explore Our Wide Range of Innovative Solutions Tailored to Your Needs."
+        },
+        {
+          "id": "n7-t0",
+          "label": "Contact us",
+          "value": "Contact us"
+        }
+      ],
+      "links": [
+        {
+          "id": "n7",
+          "label": "Contact us",
+          "url": "contactus/?v=netlify-5"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "output-2",
+      "title": "Section 2",
+      "texts": [
+        {
+          "id": "n10-t0",
+          "label": "At Integrated Path, we provide a comprehensive range of IT servic",
+          "value": "At Integrated Path, we provide a comprehensive range of IT services designed to meet the diverse needs of businesses. Our services are built on quality, reliability, and customer satisfaction."
+        },
+        {
+          "id": "n14-t0",
+          "label": "01",
+          "value": "01"
+        },
+        {
+          "id": "n15-t0",
+          "label": "Cloud Computing & Datacenter Services",
+          "value": "Cloud Computing & Datacenter Services"
+        },
+        {
+          "id": "n16-t0",
+          "label": "Cloud solutions and datacenter expertise designed for scalability",
+          "value": "Cloud solutions and datacenter expertise designed for scalability, security, and infrastructure performance."
+        },
+        {
+          "id": "n17-t0",
+          "label": "Discuss your requirements",
+          "value": "Discuss your requirements"
+        },
+        {
+          "id": "n20-t0",
+          "label": "02",
+          "value": "02"
+        },
+        {
+          "id": "n21-t0",
+          "label": "Software Development & Licensing",
+          "value": "Software Development & Licensing"
+        },
+        {
+          "id": "n22-t0",
+          "label": "Custom software tailored to your business, with licensing service",
+          "value": "Custom software tailored to your business, with licensing services for the tools and technologies your team needs."
+        },
+        {
+          "id": "n23-t0",
+          "label": "Discuss your requirements",
+          "value": "Discuss your requirements"
+        },
+        {
+          "id": "n26-t0",
+          "label": "03",
+          "value": "03"
+        },
+        {
+          "id": "n27-t0",
+          "label": "IT Infrastructure & Outsourcing",
+          "value": "IT Infrastructure & Outsourcing"
+        },
+        {
+          "id": "n28-t0",
+          "label": "End-to-end infrastructure implementation, management, and outsour",
+          "value": "End-to-end infrastructure implementation, management, and outsourcing to support efficient operations."
+        },
+        {
+          "id": "n29-t0",
+          "label": "Discuss your requirements",
+          "value": "Discuss your requirements"
+        },
+        {
+          "id": "n32-t0",
+          "label": "04",
+          "value": "04"
+        },
+        {
+          "id": "n33-t0",
+          "label": "Enterprise Solutions",
+          "value": "Enterprise Solutions"
+        },
+        {
+          "id": "n34-t0",
+          "label": "ERP, CRM, and business intelligence that connect information, pro",
+          "value": "ERP, CRM, and business intelligence that connect information, productivity, and strategic decision-making."
+        },
+        {
+          "id": "n35-t0",
+          "label": "Discuss your requirements",
+          "value": "Discuss your requirements"
+        },
+        {
+          "id": "n38-t0",
+          "label": "05",
+          "value": "05"
+        },
+        {
+          "id": "n39-t0",
+          "label": "Information Security",
+          "value": "Information Security"
+        },
+        {
+          "id": "n40-t0",
+          "label": "Network and data protection to safeguard your business and streng",
+          "value": "Network and data protection to safeguard your business and strengthen the security of your operations."
+        },
+        {
+          "id": "n41-t0",
+          "label": "Discuss your requirements",
+          "value": "Discuss your requirements"
+        },
+        {
+          "id": "n44-t0",
+          "label": "06",
+          "value": "06"
+        },
+        {
+          "id": "n45-t0",
+          "label": "Web & Mobile Applications",
+          "value": "Web & Mobile Applications"
+        },
+        {
+          "id": "n46-t0",
+          "label": "User-friendly web and mobile applications that enhance your digit",
+          "value": "User-friendly web and mobile applications that enhance your digital presence and engage your audience."
+        },
+        {
+          "id": "n47-t0",
+          "label": "Discuss your requirements",
+          "value": "Discuss your requirements"
+        }
+      ],
+      "links": [
+        {
+          "id": "n17",
+          "label": "Discuss your requirements",
+          "url": "contactus/?v=netlify-5"
+        },
+        {
+          "id": "n23",
+          "label": "Discuss your requirements",
+          "url": "contactus/?v=netlify-5"
+        },
+        {
+          "id": "n29",
+          "label": "Discuss your requirements",
+          "url": "contactus/?v=netlify-5"
+        },
+        {
+          "id": "n35",
+          "label": "Discuss your requirements",
+          "url": "contactus/?v=netlify-5"
+        },
+        {
+          "id": "n41",
+          "label": "Discuss your requirements",
+          "url": "contactus/?v=netlify-5"
+        },
+        {
+          "id": "n47",
+          "label": "Discuss your requirements",
+          "url": "contactus/?v=netlify-5"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "output-3",
+      "title": "If You Dare to Dream It,We Dare to Achieve It!",
+      "texts": [
+        {
+          "id": "n49-t0",
+          "label": "If You Dare to Dream It,",
+          "value": "If You Dare to Dream It,"
+        },
+        {
+          "id": "n51-t0",
+          "label": "We Dare to Achieve It!",
+          "value": "We Dare to Achieve It!"
+        }
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "output-4",
+      "title": "Unlock New Levels of Efficiency with Premier Odoo Implementation.",
+      "texts": [
+        {
+          "id": "n56-t0",
+          "label": "Looking for a Professional Odoo Implementation?",
+          "value": "Looking for a Professional Odoo Implementation?"
+        },
+        {
+          "id": "n57-t0",
+          "label": "Unlock New Levels of Efficiency with Premier Odoo Implementation.",
+          "value": "Unlock New Levels of Efficiency with Premier Odoo Implementation."
+        },
+        {
+          "id": "n63-t0",
+          "label": "Odoo Implementation",
+          "value": "Odoo Implementation"
+        },
+        {
+          "id": "n64-t0",
+          "label": "As an official Odoo partner, Integrated Path delivers tailored im",
+          "value": "As an official Odoo partner, Integrated Path delivers tailored implementations backed by a well-defined methodology. We align your platform with your business needs, using best practices throughout development and deployment."
+        },
+        {
+          "id": "n67-t0",
+          "label": "01",
+          "value": "01"
+        },
+        {
+          "id": "n68-t0",
+          "label": "Requirement Analysis",
+          "value": "Requirement Analysis"
+        },
+        {
+          "id": "n69-t0",
+          "label": "Understand and analyze your business needs before making implemen",
+          "value": "Understand and analyze your business needs before making implementation decisions."
+        },
+        {
+          "id": "n71-t0",
+          "label": "02",
+          "value": "02"
+        },
+        {
+          "id": "n72-t0",
+          "label": "Customization and Development",
+          "value": "Customization and Development"
+        },
+        {
+          "id": "n73-t0",
+          "label": "Develop Odoo functionality around your requirements and establish",
+          "value": "Develop Odoo functionality around your requirements and established standards."
+        },
+        {
+          "id": "n75-t0",
+          "label": "03",
+          "value": "03"
+        },
+        {
+          "id": "n76-t0",
+          "label": "Odoo Deployment and Configuration",
+          "value": "Odoo Deployment and Configuration"
+        },
+        {
+          "id": "n77-t0",
+          "label": "Configure your ERP functions and analysis tools to match the way ",
+          "value": "Configure your ERP functions and analysis tools to match the way your company works."
+        },
+        {
+          "id": "n79-t0",
+          "label": "04",
+          "value": "04"
+        },
+        {
+          "id": "n80-t0",
+          "label": "Data Migration",
+          "value": "Data Migration"
+        },
+        {
+          "id": "n81-t0",
+          "label": "Transfer data from existing software, Excel files, or previous Od",
+          "value": "Transfer data from existing software, Excel files, or previous Odoo versions."
+        },
+        {
+          "id": "n83-t0",
+          "label": "05",
+          "value": "05"
+        },
+        {
+          "id": "n84-t0",
+          "label": "Training and Support",
+          "value": "Training and Support"
+        },
+        {
+          "id": "n85-t0",
+          "label": "Help end users work confidently through training, videos, documen",
+          "value": "Help end users work confidently through training, videos, documentation, and ongoing support."
+        },
+        {
+          "id": "n87-t0",
+          "label": "06",
+          "value": "06"
+        },
+        {
+          "id": "n88-t0",
+          "label": "Going Live",
+          "value": "Going Live"
+        },
+        {
+          "id": "n89-t0",
+          "label": "Support your transition and help you resolve challenges as your t",
+          "value": "Support your transition and help you resolve challenges as your team begins daily use."
+        }
+      ],
+      "links": [],
+      "images": [
+        {
+          "id": "n60",
+          "label": "Odoo",
+          "src": "/assets/odoo-white.png",
+          "alt": "Odoo"
+        },
+        {
+          "id": "n61",
+          "label": "Odoo",
+          "src": "/assets/odoo-color.png",
+          "alt": "Odoo"
+        }
+      ]
+    }
+  ]
+}

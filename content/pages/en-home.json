@@ -1,0 +1,988 @@
+{
+  "title": "Home | Integrated Path",
+  "description": "Integrated Path: Odoo expertise, digital transformation, and comprehensive IT solutions in Iraq.",
+  "sections": [
+    {
+      "id": "output-1",
+      "title": "IRAQ’s leading Odoo Partner & Digital Transformation Company",
+      "texts": [
+        {
+          "id": "n3-t0",
+          "label": "INTEGRATED",
+          "value": "INTEGRATED"
+        },
+        {
+          "id": "n4-t0",
+          "label": "PATH",
+          "value": "PATH"
+        },
+        {
+          "id": "n6-t0",
+          "label": "Beyond Technologies / Baghdad, Iraq",
+          "value": "Beyond Technologies / Baghdad, Iraq"
+        },
+        {
+          "id": "n7-t0",
+          "label": "IRAQ’s leading",
+          "value": "IRAQ’s leading"
+        },
+        {
+          "id": "n7-t2",
+          "label": "& Digital Transformation Company",
+          "value": "& Digital Transformation Company"
+        },
+        {
+          "id": "n8-t0",
+          "label": "Odoo Partner",
+          "value": "Odoo Partner"
+        },
+        {
+          "id": "n9-t0",
+          "label": "Crafting Innovative Solutions for Tomorrow’s Challenges.",
+          "value": "Crafting Innovative Solutions for Tomorrow’s Challenges."
+        },
+        {
+          "id": "n11-t0",
+          "label": "Discuss your project · WhatsApp",
+          "value": "Discuss your project · WhatsApp"
+        },
+        {
+          "id": "n12-t0",
+          "label": "About Us",
+          "value": "About Us"
+        },
+        {
+          "id": "n14-t0",
+          "label": "company.json",
+          "value": "company.json"
+        },
+        {
+          "id": "n15-t0",
+          "label": "read-only",
+          "value": "read-only"
+        },
+        {
+          "id": "n17-t0",
+          "label": "Logo",
+          "value": "Logo"
+        },
+        {
+          "id": "n19-t0",
+          "label": "company-logo.png",
+          "value": "company-logo.png"
+        },
+        {
+          "id": "n20-t0",
+          "label": "location",
+          "value": "location"
+        },
+        {
+          "id": "n21-t0",
+          "label": "\"Baghdad, Iraq\"",
+          "value": "\"Baghdad, Iraq\""
+        },
+        {
+          "id": "n22-t0",
+          "label": "specialty",
+          "value": "specialty"
+        },
+        {
+          "id": "n23-t0",
+          "label": "\"Odoo & digital transformation\"",
+          "value": "\"Odoo & digital transformation\""
+        },
+        {
+          "id": "n24-t0",
+          "label": "clients",
+          "value": "clients"
+        },
+        {
+          "id": "n25-t0",
+          "label": "\"130+\"",
+          "value": "\"130+\""
+        },
+        {
+          "id": "n26-t0",
+          "label": "View company profile",
+          "value": "View company profile"
+        },
+        {
+          "id": "n28-t0",
+          "label": "Not sure where to start?",
+          "value": "Not sure where to start?"
+        },
+        {
+          "id": "n29-t0",
+          "label": "Find your solution in 3 questions",
+          "value": "Find your solution in 3 questions"
+        }
+      ],
+      "links": [
+        {
+          "id": "n11",
+          "label": "Discuss your project · WhatsApp",
+          "url": "https://wa.me/9647511997799"
+        },
+        {
+          "id": "n12",
+          "label": "About Us",
+          "url": "about-us/?v=netlify-5"
+        },
+        {
+          "id": "n19",
+          "label": "company-logo.png ↗",
+          "url": "assets/company-logo.png?v=blue"
+        },
+        {
+          "id": "n26",
+          "label": "View company profile",
+          "url": "about-us/?v=netlify-5"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "output-2",
+      "title": "Section 2",
+      "texts": [
+        {
+          "id": "n31-t0",
+          "label": "Our perspective",
+          "value": "Our perspective"
+        },
+        {
+          "id": "n32-t0",
+          "label": "At Integrated Path, software development isn’t just about code an",
+          "value": "At Integrated Path, software development isn’t just about code and functionality; it’s about crafting narratives that resonate with our clients and their unique journeys."
+        },
+        {
+          "id": "n33-t0",
+          "label": "Every project is an opportunity to reflect your vision and aspira",
+          "value": "Every project is an opportunity to reflect your vision and aspirations. We build software around the people who use it, creating experiences that connect with your business and its goals."
+        }
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "output-3",
+      "title": "Meet Our Partners",
+      "texts": [
+        {
+          "id": "n37-t0",
+          "label": "An ecosystem of expertise",
+          "value": "An ecosystem of expertise"
+        },
+        {
+          "id": "n38-t0",
+          "label": "Meet Our Partners",
+          "value": "Meet Our Partners"
+        },
+        {
+          "id": "n44-t0",
+          "label": "Microsoft",
+          "value": "Microsoft"
+        },
+        {
+          "id": "n45-t0",
+          "label": "microsoft.com",
+          "value": "microsoft.com"
+        },
+        {
+          "id": "n50-t0",
+          "label": "Odoo",
+          "value": "Odoo"
+        },
+        {
+          "id": "n51-t0",
+          "label": "odoo.com",
+          "value": "odoo.com"
+        },
+        {
+          "id": "n56-t0",
+          "label": "Dell EMC",
+          "value": "Dell EMC"
+        },
+        {
+          "id": "n57-t0",
+          "label": "dell.com",
+          "value": "dell.com"
+        },
+        {
+          "id": "n62-t0",
+          "label": "Bitdefender",
+          "value": "Bitdefender"
+        },
+        {
+          "id": "n63-t0",
+          "label": "bitdefender.com",
+          "value": "bitdefender.com"
+        },
+        {
+          "id": "n68-t0",
+          "label": "McAfee",
+          "value": "McAfee"
+        },
+        {
+          "id": "n69-t0",
+          "label": "mcafee.com",
+          "value": "mcafee.com"
+        },
+        {
+          "id": "n74-t0",
+          "label": "VMware",
+          "value": "VMware"
+        },
+        {
+          "id": "n75-t0",
+          "label": "vmware.com",
+          "value": "vmware.com"
+        },
+        {
+          "id": "n80-t0",
+          "label": "Fortinet",
+          "value": "Fortinet"
+        },
+        {
+          "id": "n81-t0",
+          "label": "fortinet.com",
+          "value": "fortinet.com"
+        },
+        {
+          "id": "n86-t0",
+          "label": "Veeam",
+          "value": "Veeam"
+        },
+        {
+          "id": "n87-t0",
+          "label": "veeam.com",
+          "value": "veeam.com"
+        },
+        {
+          "id": "n92-t0",
+          "label": "SolarWinds",
+          "value": "SolarWinds"
+        },
+        {
+          "id": "n93-t0",
+          "label": "solarwinds.com",
+          "value": "solarwinds.com"
+        },
+        {
+          "id": "n98-t0",
+          "label": "Ameyo",
+          "value": "Ameyo"
+        },
+        {
+          "id": "n99-t0",
+          "label": "ameyo.com",
+          "value": "ameyo.com"
+        },
+        {
+          "id": "n104-t0",
+          "label": "Edimax",
+          "value": "Edimax"
+        },
+        {
+          "id": "n105-t0",
+          "label": "edimax.com",
+          "value": "edimax.com"
+        },
+        {
+          "id": "n110-t0",
+          "label": "RansNet",
+          "value": "RansNet"
+        },
+        {
+          "id": "n111-t0",
+          "label": "ransnet.com",
+          "value": "ransnet.com"
+        }
+      ],
+      "links": [
+        {
+          "id": "n40",
+          "label": "Microsoftmicrosoft.com↗",
+          "url": "https://www.microsoft.com/"
+        },
+        {
+          "id": "n46",
+          "label": "Odooodoo.com↗",
+          "url": "https://www.odoo.com/"
+        },
+        {
+          "id": "n52",
+          "label": "Dell EMCdell.com↗",
+          "url": "https://www.dell.com/"
+        },
+        {
+          "id": "n58",
+          "label": "Bitdefenderbitdefender.com↗",
+          "url": "https://www.bitdefender.com/"
+        },
+        {
+          "id": "n64",
+          "label": "McAfeemcafee.com↗",
+          "url": "https://www.mcafee.com/"
+        },
+        {
+          "id": "n70",
+          "label": "VMwarevmware.com↗",
+          "url": "https://www.vmware.com/"
+        },
+        {
+          "id": "n76",
+          "label": "Fortinetfortinet.com↗",
+          "url": "https://www.fortinet.com/"
+        },
+        {
+          "id": "n82",
+          "label": "Veeamveeam.com↗",
+          "url": "https://www.veeam.com/"
+        },
+        {
+          "id": "n88",
+          "label": "SolarWindssolarwinds.com↗",
+          "url": "https://www.solarwinds.com/"
+        },
+        {
+          "id": "n94",
+          "label": "Ameyoameyo.com↗",
+          "url": "https://www.ameyo.com/"
+        },
+        {
+          "id": "n100",
+          "label": "Edimaxedimax.com↗",
+          "url": "https://www.edimax.com/edimax/me/"
+        },
+        {
+          "id": "n106",
+          "label": "RansNetransnet.com↗",
+          "url": "https://www.ransnet.com/"
+        }
+      ],
+      "images": [
+        {
+          "id": "n9000",
+          "label": "Microsoft logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9001",
+          "label": "Odoo logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9002",
+          "label": "Dell EMC logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9003",
+          "label": "Bitdefender logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9004",
+          "label": "McAfee logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9005",
+          "label": "VMware logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9006",
+          "label": "Fortinet logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9007",
+          "label": "Veeam logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9008",
+          "label": "SolarWinds logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9009",
+          "label": "Ameyo logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9010",
+          "label": "Edimax logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n9011",
+          "label": "RansNet logo",
+          "src": "",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "id": "output-4",
+      "title": "Area of Expertise",
+      "texts": [
+        {
+          "id": "n116-t0",
+          "label": "What we do",
+          "value": "What we do"
+        },
+        {
+          "id": "n117-t0",
+          "label": "Area of Expertise",
+          "value": "Area of Expertise"
+        },
+        {
+          "id": "n118-t0",
+          "label": "Connected capabilities for your infrastructure, operations, and c",
+          "value": "Connected capabilities for your infrastructure, operations, and customer experiences."
+        },
+        {
+          "id": "n122-t0",
+          "label": "01",
+          "value": "01"
+        },
+        {
+          "id": "n123-t0",
+          "label": "IT Infrastructure",
+          "value": "IT Infrastructure"
+        },
+        {
+          "id": "n124-t0",
+          "label": "Reliable hardware, networks, and cloud services that give your bu",
+          "value": "Reliable hardware, networks, and cloud services that give your business a strong technology foundation."
+        },
+        {
+          "id": "n125-t0",
+          "label": "Explore service",
+          "value": "Explore service"
+        },
+        {
+          "id": "n128-t0",
+          "label": "02",
+          "value": "02"
+        },
+        {
+          "id": "n129-t0",
+          "label": "Business Automation",
+          "value": "Business Automation"
+        },
+        {
+          "id": "n130-t0",
+          "label": "Optimize processes and workflows to enhance efficiency, reduce co",
+          "value": "Optimize processes and workflows to enhance efficiency, reduce costs, and support business growth."
+        },
+        {
+          "id": "n131-t0",
+          "label": "Explore service",
+          "value": "Explore service"
+        },
+        {
+          "id": "n134-t0",
+          "label": "03",
+          "value": "03"
+        },
+        {
+          "id": "n135-t0",
+          "label": "Mobile Apps",
+          "value": "Mobile Apps"
+        },
+        {
+          "id": "n136-t0",
+          "label": "Innovative mobile applications that enhance user engagement and o",
+          "value": "Innovative mobile applications that enhance user engagement and operational efficiency."
+        },
+        {
+          "id": "n137-t0",
+          "label": "Explore service",
+          "value": "Explore service"
+        },
+        {
+          "id": "n140-t0",
+          "label": "04",
+          "value": "04"
+        },
+        {
+          "id": "n141-t0",
+          "label": "IT Security",
+          "value": "IT Security"
+        },
+        {
+          "id": "n142-t0",
+          "label": "Advanced security solutions, including Bitdefender, to safeguard ",
+          "value": "Advanced security solutions, including Bitdefender, to safeguard your business against evolving threats."
+        },
+        {
+          "id": "n143-t0",
+          "label": "Explore service",
+          "value": "Explore service"
+        },
+        {
+          "id": "n146-t0",
+          "label": "05",
+          "value": "05"
+        },
+        {
+          "id": "n147-t0",
+          "label": "ERP & CRM",
+          "value": "ERP & CRM"
+        },
+        {
+          "id": "n148-t0",
+          "label": "Tailored Odoo solutions that connect operations and help your bus",
+          "value": "Tailored Odoo solutions that connect operations and help your business grow."
+        },
+        {
+          "id": "n149-t0",
+          "label": "Explore service",
+          "value": "Explore service"
+        },
+        {
+          "id": "n152-t0",
+          "label": "06",
+          "value": "06"
+        },
+        {
+          "id": "n153-t0",
+          "label": "IP PBX",
+          "value": "IP PBX"
+        },
+        {
+          "id": "n154-t0",
+          "label": "VoIP solutions that improve communication, scalability, and cost-",
+          "value": "VoIP solutions that improve communication, scalability, and cost-effectiveness."
+        },
+        {
+          "id": "n155-t0",
+          "label": "Explore service",
+          "value": "Explore service"
+        },
+        {
+          "id": "n157-t0",
+          "label": "Our Services",
+          "value": "Our Services"
+        }
+      ],
+      "links": [
+        {
+          "id": "n125",
+          "label": "Explore service",
+          "url": "services/?v=netlify-5"
+        },
+        {
+          "id": "n131",
+          "label": "Explore service",
+          "url": "services/?v=netlify-5"
+        },
+        {
+          "id": "n137",
+          "label": "Explore service",
+          "url": "services/?v=netlify-5"
+        },
+        {
+          "id": "n143",
+          "label": "Explore service",
+          "url": "services/?v=netlify-5"
+        },
+        {
+          "id": "n149",
+          "label": "Explore service",
+          "url": "services/?v=netlify-5"
+        },
+        {
+          "id": "n155",
+          "label": "Explore service",
+          "url": "services/?v=netlify-5"
+        },
+        {
+          "id": "n157",
+          "label": "Our Services",
+          "url": "services/?v=netlify-5"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "output-5",
+      "title": "Empowering Your Business with Certified Odoo Experts!",
+      "texts": [
+        {
+          "id": "n160-t0",
+          "label": "Business, connected",
+          "value": "Business, connected"
+        },
+        {
+          "id": "n161-t0",
+          "label": "Empowering Your Business with",
+          "value": "Empowering Your Business with"
+        },
+        {
+          "id": "n162-t0",
+          "label": "Certified Odoo Experts!",
+          "value": "Certified Odoo Experts!"
+        },
+        {
+          "id": "n163-t0",
+          "label": "Make your business work as one. Our team brings implementation, c",
+          "value": "Make your business work as one. Our team brings implementation, customization, and support together around your requirements."
+        },
+        {
+          "id": "n164-t0",
+          "label": "Explore Odoo implementation",
+          "value": "Explore Odoo implementation"
+        },
+        {
+          "id": "n170-t0",
+          "label": "Finance & accounting",
+          "value": "Finance & accounting"
+        },
+        {
+          "id": "n171-t0",
+          "label": "Sales & CRM",
+          "value": "Sales & CRM"
+        },
+        {
+          "id": "n172-t0",
+          "label": "Inventory & purchasing",
+          "value": "Inventory & purchasing"
+        },
+        {
+          "id": "n173-t0",
+          "label": "People & operations",
+          "value": "People & operations"
+        },
+        {
+          "id": "n174-t0",
+          "label": "One platform. Connected operations.",
+          "value": "One platform. Connected operations."
+        }
+      ],
+      "links": [
+        {
+          "id": "n164",
+          "label": "Explore Odoo implementation",
+          "url": "services/?v=netlify-5#odoo"
+        }
+      ],
+      "images": [
+        {
+          "id": "n167",
+          "label": "Odoo",
+          "src": "/assets/odoo-white.png",
+          "alt": "Odoo"
+        },
+        {
+          "id": "n168",
+          "label": "Odoo",
+          "src": "/assets/odoo-color.png",
+          "alt": "Odoo"
+        }
+      ]
+    },
+    {
+      "id": "output-6",
+      "title": "Trusted by Over 130 Satisfied Clients.",
+      "texts": [
+        {
+          "id": "n178-t0",
+          "label": "Relationships that matter",
+          "value": "Relationships that matter"
+        },
+        {
+          "id": "n179-t0",
+          "label": "Trusted by Over 130 Satisfied Clients.",
+          "value": "Trusted by Over 130 Satisfied Clients."
+        },
+        {
+          "id": "n180-t0",
+          "label": "Because they Are in Very Good Hands.",
+          "value": "Because they Are in Very Good Hands."
+        }
+      ],
+      "links": [],
+      "images": [
+        {
+          "id": "n182",
+          "label": "Netgate Iraq",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n183",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n184",
+          "label": "Artouch",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n185",
+          "label": "SEDO",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n186",
+          "label": "Allawi Group",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n187",
+          "label": "Al-Shiffa",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n188",
+          "label": "Iraq Steel",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n189",
+          "label": "Warth",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n190",
+          "label": "Ammar Alqassab",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n191",
+          "label": "Norwegian People’s Aid",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n192",
+          "label": "Astico Store",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n193",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n194",
+          "label": "Ibraheem Al Qurashi",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n195",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n196",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n197",
+          "label": "Elite Men’s Fashion",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n198",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n199",
+          "label": "Digital Link",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n200",
+          "label": "Ta3leem",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n201",
+          "label": "Fay",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n202",
+          "label": "Veridos",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n203",
+          "label": "ASCO",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n204",
+          "label": "IW",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n205",
+          "label": "Onyxes Technologies",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n206",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n207",
+          "label": "Mustaqbal Al-Emaar",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n208",
+          "label": "Aleen Beauty",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n209",
+          "label": "Algheed Global Company",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n210",
+          "label": "Dashti Sanat Company",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n211",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n212",
+          "label": "Masar Al-Tanmya",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n213",
+          "label": "Green Technology",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n214",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n215",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n216",
+          "label": "Bejaa",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n217",
+          "label": "Client logo",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n218",
+          "label": "Farabi Pharma",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n219",
+          "label": "Eblal",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "id": "n220",
+          "label": "Al-Mouyasser",
+          "src": "",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "id": "output-7",
+      "title": "Our Expert Team Will Resolve All of Your Issues.",
+      "texts": [
+        {
+          "id": "n223-t0",
+          "label": "Integrated Path / Beyond Technologies",
+          "value": "Integrated Path / Beyond Technologies"
+        },
+        {
+          "id": "n224-t0",
+          "label": "Our Expert Team Will Resolve All of Your Issues.",
+          "value": "Our Expert Team Will Resolve All of Your Issues."
+        },
+        {
+          "id": "n225-t0",
+          "label": "Support",
+          "value": "Support"
+        }
+      ],
+      "links": [
+        {
+          "id": "n225",
+          "label": "Support",
+          "url": "our-support/?v=netlify-5"
+        }
+      ],
+      "images": []
+    }
+  ]
+}

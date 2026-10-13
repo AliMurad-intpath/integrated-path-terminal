@@ -1,0 +1,74 @@
+[
+  {
+    "key": "en-home",
+    "file": "index.html",
+    "lang": "en",
+    "label": "Home — English"
+  },
+  {
+    "key": "en-about-us",
+    "file": "about-us/index.html",
+    "lang": "en",
+    "label": "About us — English"
+  },
+  {
+    "key": "en-services",
+    "file": "services/index.html",
+    "lang": "en",
+    "label": "Services — English"
+  },
+  {
+    "key": "en-contactus",
+    "file": "contactus/index.html",
+    "lang": "en",
+    "label": "Contact — English"
+  },
+  {
+    "key": "en-our-support",
+    "file": "our-support/index.html",
+    "lang": "en",
+    "label": "Support — English"
+  },
+  {
+    "key": "en-jobs",
+    "file": "jobs/index.html",
+    "lang": "en",
+    "label": "Jobs — English"
+  },
+  {
+    "key": "ar-home",
+    "file": "ar/index.html",
+    "lang": "ar",
+    "label": "Home — العربية"
+  },
+  {
+    "key": "ar-about-us",
+    "file": "ar/about-us/index.html",
+    "lang": "ar",
+    "label": "About us — العربية"
+  },
+  {
+    "key": "ar-services",
+    "file": "ar/services/index.html",
+    "lang": "ar",
+    "label": "Services — العربية"
+  },
+  {
+    "key": "ar-contactus",
+    "file": "ar/contactus/index.html",
+    "lang": "ar",
+    "label": "Contact — العربية"
+  },
+  {
+    "key": "ar-our-support",
+    "file": "ar/our-support/index.html",
+    "lang": "ar",
+    "label": "Support — العربية"
+  },
+  {
+    "key": "ar-jobs",
+    "file": "ar/jobs/index.html",
+    "lang": "ar",
+    "label": "Jobs — العربية"
+  }
+]

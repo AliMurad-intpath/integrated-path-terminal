@@ -1,0 +1,9 @@
+{
+  "english_font": "sans",
+  "arabic_font": "plex",
+  "body_size": 16,
+  "heading_scale": 1,
+  "body_weight": 400,
+  "heading_weight": 700,
+  "link_weight": 600
+}

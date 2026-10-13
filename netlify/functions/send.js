@@ -57,6 +57,8 @@ function parseMultipart(event) {
   });
 }
 
+const reason = (error) => String((error && error.message) || error || 'unknown error').replace(/\s+/g, ' ').trim().slice(0, 300);
+
 exports.handler = async (event) => {
   const env = process.env;
   if (!env.SMTP_HOST || !env.SMTP_USER || !env.SMTP_PASS) return reply(503, 'unconfigured');
@@ -130,7 +132,7 @@ exports.handler = async (event) => {
     } catch (error) {
       if (error && error.code === 'job') return reply(422, 'job');
       odoo.reset();
-      odooNote = 'NOT created, see function logs';
+      odooNote = 'NOT created: ' + reason(error);
       console.error('Integrated Path application: Odoo request failed:', error && error.message);
     }
   }
@@ -148,7 +150,7 @@ exports.handler = async (event) => {
       odooNote = 'ticket #' + result.id + ' created' + (!odooAttachmentOk ? ' (attachment NOT uploaded; see email attachment)' : '');
     } catch (error) {
       odoo.reset();
-      odooNote = 'NOT created; check Helpdesk permissions and field types';
+      odooNote = 'NOT created: ' + reason(error);
       console.error('Integrated Path support: Odoo ticket creation failed:', error && error.message);
     }
   }
@@ -157,10 +159,10 @@ exports.handler = async (event) => {
     try {
       const result = await odoo.createOpportunity(env, fields);
       odooOk = true;
-      odooNote = 'opportunity #' + result.id + ' created' + (result.partnerId ? ' with new contact #' + result.partnerId : ' (contact NOT created, see logs)');
+      odooNote = 'opportunity #' + result.id + ' created' + (result.partnerId ? ' with new contact #' + result.partnerId : ' (contact NOT created: ' + result.partnerError + ')');
     } catch (error) {
       odoo.reset();
-      odooNote = 'NOT created; check CRM permissions and field requirements';
+      odooNote = 'NOT created: ' + reason(error);
       console.error('Integrated Path contact: Odoo opportunity creation failed:', error && error.message);
     }
   }

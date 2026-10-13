@@ -8,6 +8,7 @@ Based on update 6. Deploy the contents as the Netlify project root.
 - The opportunity name is left to Odoo, which fills in "<contact>'s opportunity". If this Odoo does not, the site sets the same text itself.
 - If the contact cannot be created (permissions), the opportunity is still created, without a customer, named "<name>'s opportunity".
 - The team email subject is now "[Enquiry] <name>" and the email ends with "Odoo CRM: opportunity #id created with new contact #id".
+- When an Odoo record cannot be created (applications, support tickets, contact opportunities), the team email now ends with "NOT created: <Odoo's error message>" so the cause is visible without opening Netlify logs. Visitors never see this text.
 - Everything else (company, email, phone, message notes, unassigned status, optional ODOO_CRM_USER_ID / ODOO_CRM_TEAM_ID, email safety net) is unchanged.
 - The integration user needs permission to create contacts as well as opportunities.
 

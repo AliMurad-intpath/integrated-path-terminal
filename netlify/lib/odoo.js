@@ -123,6 +123,7 @@ async function createOpportunity(env, data) {
 
   // 1) New contact from the typed values (no lookup of existing contacts).
   let partnerId = 0;
+  let partnerError = '';
   try {
     const partnerFields = await odoo.fieldsOf('res.partner');
     const partner = { name: data.name, email: data.email, phone: data.phone, company_name: data.company };
@@ -132,6 +133,7 @@ async function createOpportunity(env, data) {
     partnerId = Array.isArray(created) ? created[0] : created;
   } catch (error) {
     console.error('Integrated Path contact: creating the Odoo contact failed:', error && error.message);
+    partnerError = String((error && error.message) || 'unknown error').replace(/\s+/g, ' ').trim().slice(0, 300);
   }
 
   // 2) The opportunity.
@@ -168,7 +170,7 @@ async function createOpportunity(env, data) {
   } else {
     id = await create({ ...values, name: fallbackName }); // no contact, so Odoo has nothing to build the name from
   }
-  return { id, partnerId };
+  return { id, partnerId, partnerError };
 }
 
 module.exports = { createOpportunity, isConfigured, createApplication, createTicket, reset };

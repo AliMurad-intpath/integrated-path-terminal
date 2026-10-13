@@ -4,7 +4,7 @@ Based on update 6. Deploy the contents as the Netlify project root.
 
 ## Changes
 - The Contact form no longer has a Subject field (English and Arabic).
-- Each submission creates a NEW contact (res.partner) in Odoo from the typed name (plus email, phone and company) and links it as the opportunity's Customer (partner_id). Existing contacts are never searched or shown to visitors.
+- Each submission creates a NEW contact (res.partner) in Odoo from the typed name (plus email and phone; the company is kept on the opportunity only, so the Customer shows just the name) and links it as the opportunity's Customer (partner_id). Existing contacts are never searched or shown to visitors.
 - The opportunity is named "<contact>'s opportunity" (the text Odoo uses on its own screens). The site sends the name itself, because this Odoo rejects records created through the API without one.
 - If the contact cannot be created (permissions), the opportunity is still created, without a customer, named "<name>'s opportunity".
 - The team email subject is now "[Enquiry] <name>" and the email ends with "Odoo CRM: opportunity #id created with new contact #id".

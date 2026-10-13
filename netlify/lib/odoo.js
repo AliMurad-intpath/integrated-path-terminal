@@ -106,7 +106,7 @@ async function createTicket(env, data) {
 }
 
 // Creates a CRM opportunity (crm.lead) from the website contact form.
-// A NEW contact (res.partner) is created from what the visitor typed and linked as the Customer; existing contacts are never
+// A NEW contact (res.partner) is created from the typed name (plus email and phone) and linked as the Customer; existing contacts are never
 // searched or shown. The opportunity is named "<contact>'s opportunity", the same text Odoo uses on its own screens.
 // Optional env: ODOO_CRM_TEAM_ID (sales team), ODOO_CRM_USER_ID (salesperson). Without a salesperson the opportunity stays unassigned.
 const positiveId = (value, label) => {
@@ -126,7 +126,8 @@ async function createOpportunity(env, data) {
   let partnerError = '';
   try {
     const partnerFields = await odoo.fieldsOf('res.partner');
-    const partner = { name: data.name, email: data.email, phone: data.phone, company_name: data.company };
+    // Only the typed name (plus email and phone): a company on the contact would make Odoo display it as "Company, Name".
+    const partner = { name: data.name, email: data.email, phone: data.phone };
     const partnerValues = {};
     for (const [key, value] of Object.entries(partner)) if (partnerFields.has(key) && value) partnerValues[key] = value;
     const created = await odoo.call('res.partner', 'create', [partnerValues]);

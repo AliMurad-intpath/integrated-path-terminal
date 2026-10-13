@@ -107,7 +107,7 @@ async function createTicket(env, data) {
 
 // Creates a CRM opportunity (crm.lead) from the website contact form.
 // A NEW contact (res.partner) is created from what the visitor typed and linked as the Customer; existing contacts are never
-// searched or shown. The opportunity name is left to Odoo ("<contact>'s opportunity"), with a fallback that sets the same text.
+// searched or shown. The opportunity is named "<contact>'s opportunity", the same text Odoo uses on its own screens.
 // Optional env: ODOO_CRM_TEAM_ID (sales team), ODOO_CRM_USER_ID (salesperson). Without a salesperson the opportunity stays unassigned.
 const positiveId = (value, label) => {
   const id = Number(value);
@@ -154,22 +154,10 @@ async function createOpportunity(env, data) {
     values.team_id = positiveId(env.ODOO_CRM_TEAM_ID, 'CRM sales team ID');
   }
 
-  const create = async (vals) => { const created = await odoo.call('crm.lead', 'create', [vals]); return Array.isArray(created) ? created[0] : created; };
-  let id;
-  if (partnerId) {
-    // Odoo 17 names the opportunity "<contact>'s opportunity" itself when no name is given.
-    try { id = await create(values); }
-    catch (error) {
-      if (!/required|not.null|null value|missing/i.test(String(error && error.message))) throw error;
-      id = await create({ ...values, name: fallbackName }); // this Odoo does not fill the name automatically
-    }
-    try { // safety net: never leave the opportunity without a name
-      const [lead] = await odoo.call('crm.lead', 'read', [[id], ['name']]);
-      if (lead && !lead.name) await odoo.call('crm.lead', 'write', [[id], { name: fallbackName }]);
-    } catch (error) { console.error('Integrated Path contact: checking the opportunity name failed:', error && error.message); }
-  } else {
-    id = await create({ ...values, name: fallbackName }); // no contact, so Odoo has nothing to build the name from
-  }
+  // The name is always sent: Odoo only fills "<contact>'s opportunity" itself in its own screens, not for records created through the API.
+  values.name = fallbackName;
+  const created = await odoo.call('crm.lead', 'create', [values]);
+  const id = Array.isArray(created) ? created[0] : created;
   return { id, partnerId, partnerError };
 }
 

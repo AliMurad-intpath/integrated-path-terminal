@@ -71,4 +71,4 @@ JOBS + APPLICATIONS (Odoo 17 Recruitment)
 - Netlify variables: ODOO_URL, ODOO_DB, ODOO_USER, ODOO_API_KEY (secret), JOBS_DEFAULT_LOCATION. The Odoo user needs Recruitment Officer access (read job positions, create applicants and attachments).
 
 CRM OPPORTUNITIES (contact form)
-- The Contact form (kind=enquiry, no subject) creates a new contact (res.partner) and a crm.lead opportunity linked to it, named by Odoo ("<contact>'s opportunity"), through netlify/lib/odoo.js (createOpportunity). Optional Netlify variables: ODOO_CRM_USER_ID (salesperson), ODOO_CRM_TEAM_ID (sales team).
+- The Contact form (kind=enquiry, no subject) creates a new contact (res.partner) and a crm.lead opportunity linked to it, named "<contact>'s opportunity", through netlify/lib/odoo.js (createOpportunity). Optional Netlify variables: ODOO_CRM_USER_ID (salesperson), ODOO_CRM_TEAM_ID (sales team).

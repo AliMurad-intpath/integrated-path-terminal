@@ -67,32 +67,6 @@
       "visible": true
     },
     {
-      "song_url": "https://www.youtube.com/watch?v=vYbdQAeO0vo",
-      "youtube_channel": "Hamilton",
-      "name": "Zahraa Mohammed",
-      "song_title": "Non-Stop",
-      "song_artist": "Hamilton",
-      "visible": true,
-      "department": "Finance",
-      "role": "Accounting Specialist",
-      "role_ar": "أخصائي محاسبة",
-      "image": "/assets/30885eff6502a989.webp",
-      "youtube_title": "\"Non-Stop\" from HAMILTON"
-    },
-    {
-      "song_url": "https://www.youtube.com/watch?v=C3lWwBslWqg",
-      "youtube_channel": "StingVEVO",
-      "name": "Sara Gorges",
-      "song_title": "Desert Rose",
-      "song_artist": "Sting",
-      "visible": true,
-      "department": "Projects",
-      "role": "Project Coordinator",
-      "role_ar": "منسق مشاريع",
-      "image": "/assets/328c7484f0579cf1.jpg",
-      "youtube_title": "Sting - Desert Rose"
-    },
-    {
       "song_url": "https://www.youtube.com/watch?v=09839DpTctU",
       "youtube_channel": "Eagles",
       "name": "Ali Murad",
@@ -104,6 +78,19 @@
       "role_ar": "مهندس أول لتطبيق الأنظمة",
       "image": "/assets/a664e0384503f451.jpg",
       "youtube_title": "Eagles - Hotel California (Live 1977) (Official Video) [HD]"
+    },
+    {
+      "song_url": "https://www.youtube.com/watch?v=C3lWwBslWqg",
+      "youtube_channel": "StingVEVO",
+      "name": "Sara Gorges",
+      "song_title": "Desert Rose",
+      "song_artist": "Sting",
+      "visible": true,
+      "department": "Projects",
+      "role": "Project Coordinator",
+      "role_ar": "منسق مشاريع",
+      "image": "/assets/uploads/whatsapp-image-2026-10-13-at-13.50.36.jpeg",
+      "youtube_title": "Sting - Desert Rose"
     },
     {
       "song_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
@@ -132,17 +119,17 @@
       "youtube_title": "Pharrell Williams - Double Life (From \"Despicable Me 4\" - Official Lyric Video)"
     },
     {
-      "song_url": "https://www.youtube.com/watch?v=qAi9-LRtYSU",
-      "youtube_channel": "Chrysalis Records",
-      "name": "Athraa Abdulzahra",
-      "song_title": "Fuzzy",
-      "song_artist": "Grant Lee Buffalo",
+      "song_url": "https://www.youtube.com/watch?v=vYbdQAeO0vo",
+      "youtube_channel": "Hamilton",
+      "name": "Zahraa Mohammed",
+      "song_title": "Non-Stop",
+      "song_artist": "Hamilton",
       "visible": true,
-      "department": "Development",
-      "role": "Developer",
-      "role_ar": "مطوّر برمجيات",
-      "image": "/assets/f85b9278b58055f3.jpeg",
-      "youtube_title": "Grant Lee Buffalo -  Fuzzy (Official Music Video)"
+      "department": "Finance",
+      "role": "Accounting Specialist",
+      "role_ar": "أخصائي محاسبة",
+      "image": "/assets/30885eff6502a989.webp",
+      "youtube_title": "\"Non-Stop\" from HAMILTON"
     },
     {
       "song_url": "https://www.youtube.com/watch?v=FirJe3W2Lf8",
@@ -158,28 +145,6 @@
       "youtube_title": "Amr Diab - Qusad Einy | عمرو دياب - قصاد عيني"
     },
     {
-      "song_url": "https://www.youtube.com/watch?v=QK-Z1K67uaA",
-      "youtube_channel": "Cristian Nicolae",
-      "name": "Hajer Thaer",
-      "song_title": "Shape of My Heart",
-      "song_artist": "Sting",
-      "visible": true,
-      "department": "Sales",
-      "role": "Sales Executive",
-      "role_ar": "مسؤول مبيعات",
-      "image": "/assets/96cd8fff628a28ea.jpeg",
-      "youtube_title": "Sting - Shape of My Heart (Leon)"
-    },
-    {
-      "name": "Nabeel Nadheer",
-      "role": "Call Center Specialist",
-      "image": "/assets/96b63029d95989fa.jpg",
-      "department": "Client support",
-      "song_url": "",
-      "role_ar": "أخصائي مركز اتصال",
-      "visible": true
-    },
-    {
       "song_url": "https://www.youtube.com/watch?v=V_FAqr6rP4w",
       "youtube_channel": "Jerry Lee Lewis - Topic",
       "name": "Muqdad Ismail",
@@ -191,6 +156,41 @@
       "role_ar": "مهندس دعم تقني",
       "image": "/assets/35cc3aa04f425ceb.webp",
       "youtube_title": "Great Balls of Fire"
+    },
+    {
+      "name": "Nabeel Nadheer",
+      "role": "Call Center Specialist",
+      "image": "/assets/96b63029d95989fa.jpg",
+      "department": "Client support",
+      "song_url": "",
+      "role_ar": "أخصائي مركز اتصال",
+      "visible": true
+    },
+    {
+      "song_url": "https://www.youtube.com/watch?v=qAi9-LRtYSU",
+      "youtube_channel": "Chrysalis Records",
+      "name": "Athraa Abdulzahra",
+      "song_title": "Fuzzy",
+      "song_artist": "Grant Lee Buffalo",
+      "visible": true,
+      "department": "Development",
+      "role": "Developer",
+      "role_ar": "مطوّر برمجيات",
+      "image": "/assets/f85b9278b58055f3.jpeg",
+      "youtube_title": "Grant Lee Buffalo -  Fuzzy (Official Music Video)"
+    },
+    {
+      "song_url": "https://www.youtube.com/watch?v=QK-Z1K67uaA",
+      "youtube_channel": "Cristian Nicolae",
+      "name": "Hajer Thaer",
+      "song_title": "Shape of My Heart",
+      "song_artist": "Sting",
+      "visible": true,
+      "department": "Sales",
+      "role": "Sales Executive",
+      "role_ar": "مسؤول مبيعات",
+      "image": "/assets/96cd8fff628a28ea.jpeg",
+      "youtube_title": "Sting - Shape of My Heart (Leon)"
     },
     {
       "song_url": "https://www.youtube.com/watch?v=pgmygbALLo0",

@@ -1,3 +1,31 @@
+# Netlify update 7
+
+Based on update 6. Deploy the contents as the Netlify project root.
+
+## Changes
+- The Contact form no longer has a Subject field (English and Arabic).
+- Each submission creates a NEW contact (res.partner) in Odoo from the typed name (plus email, phone and company) and links it as the opportunity's Customer (partner_id). Existing contacts are never searched or shown to visitors.
+- The opportunity name is left to Odoo, which fills in "<contact>'s opportunity". If this Odoo does not, the site sets the same text itself.
+- If the contact cannot be created (permissions), the opportunity is still created, without a customer, named "<name>'s opportunity".
+- The team email subject is now "[Enquiry] <name>" and the email ends with "Odoo CRM: opportunity #id created with new contact #id".
+- Everything else (company, email, phone, message notes, unassigned status, optional ODOO_CRM_USER_ID / ODOO_CRM_TEAM_ID, email safety net) is unchanged.
+- The integration user needs permission to create contacts as well as opportunities.
+
+---
+
+# Netlify update 6
+
+Based on integrated-path-terminal-main-2 (update 5). Deploy the contents as the Netlify project root.
+
+## Changes
+- The Contact form now creates a CRM opportunity (crm.lead, type opportunity) in Odoo, using the existing ODOO_URL, ODOO_DB, ODOO_USER and ODOO_API_KEY settings.
+- Mapping: subject -> opportunity name; name -> contact name; company -> company name; email -> email; phone -> phone; message -> notes (escaped HTML, with a "submitted through the website contact form" line).
+- The opportunity is left unassigned unless ODOO_CRM_USER_ID (salesperson) is set. Optional ODOO_CRM_TEAM_ID selects the sales team.
+- The email to the team still goes out and now ends with "Odoo CRM: opportunity #id created" or "NOT created". If Odoo fails the visitor still gets a success message because the email arrived.
+- The integration user needs Sales access that allows creating opportunities (Sales / User).
+
+---
+
 # Netlify update 5
 
 Based on integrated-path-netlify-4.zip. Deploy the contents as the Netlify project root.

@@ -92,7 +92,8 @@ exports.handler = async (event) => {
     fields[key] = value;
   }
   // Applications mirror Odoo's website form: name, email and phone are required; the rest is optional.
-  const required = isApplication ? ['name', 'email', 'phone'] : ['name', 'email', 'subject', 'message'];
+  // The contact form has no subject: the opportunity takes its name from the contact, like Odoo does.
+  const required = isApplication ? ['name', 'email', 'phone'] : kind === 'enquiry' ? ['name', 'email', 'message'] : ['name', 'email', 'subject', 'message'];
   for (const key of required) if (!fields[key]) return reply(422, 'validation');
   if (!/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(fields.email)) return reply(422, 'validation');
   if (fields.linkedin && !/^https?:\/\//i.test(fields.linkedin)) fields.linkedin = 'https://' + fields.linkedin;
@@ -152,6 +153,18 @@ exports.handler = async (event) => {
     }
   }
 
+  if (kind === 'enquiry' && odoo.isConfigured(env)) {
+    try {
+      const result = await odoo.createOpportunity(env, fields);
+      odooOk = true;
+      odooNote = 'opportunity #' + result.id + ' created' + (result.partnerId ? ' with new contact #' + result.partnerId : ' (contact NOT created, see logs)');
+    } catch (error) {
+      odoo.reset();
+      odooNote = 'NOT created; check CRM permissions and field requirements';
+      console.error('Integrated Path contact: Odoo opportunity creation failed:', error && error.message);
+    }
+  }
+
   // 2) Email to the team (also the safety net when Odoo is unavailable).
   const port = Number(env.SMTP_PORT || 465);
   const transporter = nodemailer.createTransport({
@@ -170,10 +183,10 @@ exports.handler = async (event) => {
     if (!value || key === 'job_title') continue;
     text += (labels[key] || key.charAt(0).toUpperCase() + key.slice(1)) + ': ' + value + '\n\n';
   }
-  if (isApplication || kind === 'support') text += 'Odoo ' + (isApplication ? 'Recruitment' : 'Helpdesk') + ': ' + odooNote + '\n';
+  text += 'Odoo ' + { application: 'Recruitment', support: 'Helpdesk', enquiry: 'CRM' }[kind] + ': ' + odooNote + '\n';
   const subject = isApplication
     ? '[Application] ' + position + ' - ' + fields.name
-    : '[' + kind.charAt(0).toUpperCase() + kind.slice(1) + '] ' + fields.subject;
+    : '[' + kind.charAt(0).toUpperCase() + kind.slice(1) + '] ' + (kind === 'enquiry' ? fields.name : fields.subject);
 
   try {
     await transporter.sendMail({

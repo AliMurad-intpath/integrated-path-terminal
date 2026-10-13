@@ -1,5 +1,5 @@
 'use strict';
-// Small Odoo 17 JSON-RPC helper used by the application form (creates Recruitment applicants).
+// Small Odoo 17 JSON-RPC helper used by the website forms (Recruitment applicants, Helpdesk tickets, CRM opportunities).
 const state = { uid: null, fields: {} };
 
 async function rpc(baseUrl, service, method, args) {
@@ -105,4 +105,70 @@ async function createTicket(env, data) {
   return { id, attached };
 }
 
-module.exports = { isConfigured, createApplication, createTicket, reset };
+// Creates a CRM opportunity (crm.lead) from the website contact form.
+// A NEW contact (res.partner) is created from what the visitor typed and linked as the Customer; existing contacts are never
+// searched or shown. The opportunity name is left to Odoo ("<contact>'s opportunity"), with a fallback that sets the same text.
+// Optional env: ODOO_CRM_TEAM_ID (sales team), ODOO_CRM_USER_ID (salesperson). Without a salesperson the opportunity stays unassigned.
+const positiveId = (value, label) => {
+  const id = Number(value);
+  if (!Number.isSafeInteger(id) || id < 1) throw new Error('Invalid ' + label);
+  return id;
+};
+
+async function createOpportunity(env, data) {
+  const odoo = await connect(env);
+  const known = await odoo.fieldsOf('crm.lead');
+  if (!known.has('name')) throw new Error('crm.lead is unavailable to the integration user (is CRM installed and does the user have Sales access?)');
+  const fallbackName = data.name + "'s opportunity";
+
+  // 1) New contact from the typed values (no lookup of existing contacts).
+  let partnerId = 0;
+  try {
+    const partnerFields = await odoo.fieldsOf('res.partner');
+    const partner = { name: data.name, email: data.email, phone: data.phone, company_name: data.company };
+    const partnerValues = {};
+    for (const [key, value] of Object.entries(partner)) if (partnerFields.has(key) && value) partnerValues[key] = value;
+    const created = await odoo.call('res.partner', 'create', [partnerValues]);
+    partnerId = Array.isArray(created) ? created[0] : created;
+  } catch (error) {
+    console.error('Integrated Path contact: creating the Odoo contact failed:', error && error.message);
+  }
+
+  // 2) The opportunity.
+  const candidate = {
+    partner_id: partnerId || false,
+    contact_name: data.name,
+    partner_name: data.company,
+    email_from: data.email,
+    phone: data.phone,
+    description: '<p>' + escapeHtml(data.message).replace(/\r?\n/g, '<br>') + '</p><p><i>Submitted through the website contact form.</i></p>',
+  };
+  const values = {};
+  for (const [key, value] of Object.entries(candidate)) if (known.has(key) && value) values[key] = value;
+  if (known.has('type')) values.type = 'opportunity';
+  if (known.has('user_id')) values.user_id = env.ODOO_CRM_USER_ID ? positiveId(env.ODOO_CRM_USER_ID, 'CRM salesperson ID') : false;
+  if (env.ODOO_CRM_TEAM_ID) {
+    if (!known.has('team_id')) throw new Error('crm.lead team_id is unavailable to the integration user');
+    values.team_id = positiveId(env.ODOO_CRM_TEAM_ID, 'CRM sales team ID');
+  }
+
+  const create = async (vals) => { const created = await odoo.call('crm.lead', 'create', [vals]); return Array.isArray(created) ? created[0] : created; };
+  let id;
+  if (partnerId) {
+    // Odoo 17 names the opportunity "<contact>'s opportunity" itself when no name is given.
+    try { id = await create(values); }
+    catch (error) {
+      if (!/required|not.null|null value|missing/i.test(String(error && error.message))) throw error;
+      id = await create({ ...values, name: fallbackName }); // this Odoo does not fill the name automatically
+    }
+    try { // safety net: never leave the opportunity without a name
+      const [lead] = await odoo.call('crm.lead', 'read', [[id], ['name']]);
+      if (lead && !lead.name) await odoo.call('crm.lead', 'write', [[id], { name: fallbackName }]);
+    } catch (error) { console.error('Integrated Path contact: checking the opportunity name failed:', error && error.message); }
+  } else {
+    id = await create({ ...values, name: fallbackName }); // no contact, so Odoo has nothing to build the name from
+  }
+  return { id, partnerId };
+}
+
+module.exports = { createOpportunity, isConfigured, createApplication, createTicket, reset };

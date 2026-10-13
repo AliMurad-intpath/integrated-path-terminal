@@ -69,3 +69,6 @@ JOBS + APPLICATIONS (Odoo 17 Recruitment)
 - /api/jobs (netlify/functions/jobs.js) lists the published job positions from Odoo; jobs-odoo.js renders them on the Jobs page (English and Arabic). The static cards in the HTML are only a fallback if Odoo cannot be reached.
 - The application form on the Jobs page (position, name, email, phone, LinkedIn, short introduction, resume) posts to /api/send.php. For applications, netlify/functions/send.js creates an applicant in Odoo Recruitment (netlify/lib/odoo.js) with the resume attached, then also emails the team as a safety net.
 - Netlify variables: ODOO_URL, ODOO_DB, ODOO_USER, ODOO_API_KEY (secret), JOBS_DEFAULT_LOCATION. The Odoo user needs Recruitment Officer access (read job positions, create applicants and attachments).
+
+CRM OPPORTUNITIES (contact form)
+- The Contact form (kind=enquiry, no subject) creates a new contact (res.partner) and a crm.lead opportunity linked to it, named by Odoo ("<contact>'s opportunity"), through netlify/lib/odoo.js (createOpportunity). Optional Netlify variables: ODOO_CRM_USER_ID (salesperson), ODOO_CRM_TEAM_ID (sales team).

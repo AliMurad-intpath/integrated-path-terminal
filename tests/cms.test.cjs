@@ -53,3 +53,40 @@ test('admin uses GitHub authorization and drafts; no test backend is published',
  assert.equal(fs.existsSync(path.join(root,'dist/admin/test.html')),false);
  assert.equal(fs.existsSync(path.join(root,'dist/admin/fixtures.js')),false);
 });
+test('deleted text and sections do not reappear from templates in either language',()=>{
+ for(const lang of ['en','ar']){
+  const prefix=lang==='ar'?'ar/':'';
+  const data=json(`content/pages/${lang}-about-us.json`);
+  // The uploaded content already deletes the team introduction.
+  let $=load(renderPage(read('templates/'+prefix+'about-us/index.html'),data,team,lang));
+  assert.equal($('[data-cms-node="n47"]').length,0);
+  const removed=data.sections.find(s=>s.id==='output-3');
+  data.sections=data.sections.filter(s=>s!==removed);
+  $=load(renderPage(read('templates/'+prefix+'about-us/index.html'),data,team,lang));
+  assert.equal($('#output-3').length,0);
+  assert.equal($('[data-local-section="output-3"]').length,0);
+  assert.ok($('.team-card').length>0);
+ }
+});
+test('uploaded team photos reach both generated languages with their original bytes',()=>{
+ for(const lang of ['en','ar']){
+  const $=load(read('dist/'+(lang==='ar'?'ar/':'')+'about-us/index.html'));
+  for(const m of team.filter(m=>m.image.startsWith('/assets/uploads/'))){
+   const c=$('.team-card').filter((_,el)=>$(el).find('h3').text()===m.name);
+   assert.equal(c.find('img').attr('src'),m.image);
+   assert.deepEqual(fs.readFileSync(path.join(root,'dist',m.image)),fs.readFileSync(path.join(root,m.image)));
+  }
+ }
+});
+test('page and team editor previews resolve draft images through the CMS asset store',()=>{
+ const previews={},vm=require('node:vm');
+ const h=(tag,props,...children)=>({tag,props,children});
+ vm.runInNewContext(read('admin/preview.js'),{window:{h},CMS:{registerPreviewStyle(){},registerPreviewTemplate:(name,fn)=>{previews[name]=fn;},init(){}},document:{getElementById:()=>({remove(){}})}});
+ const paths=[];const getAsset=p=>{paths.push(p);return {toString:()=> 'blob:uploaded-photo'};};
+ const page={title:'Preview',sections:[{id:'section',title:'Photo',images:[{id:'photo',src:'/assets/uploads/new.png',alt:'New'}]}]};
+ const entry={getIn:keys=>keys[0]==='slug'?'en-home':{toJS:()=>page}};
+ assert.ok(JSON.stringify(previews['en-home']({entry,getAsset})).includes('blob:uploaded-photo'));
+ const teamEntry={getIn:()=>({toJS:()=>[{name:'New member',image:'/assets/uploads/new.png'}]})};
+ assert.ok(JSON.stringify(previews.team({entry:teamEntry,getAsset})).includes('blob:uploaded-photo'));
+ assert.equal(paths.length,2);
+});

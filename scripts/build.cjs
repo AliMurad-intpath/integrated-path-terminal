@@ -35,8 +35,23 @@ function renderTeam($,team,lang){
 }
 function renderPage(html,data,team,lang){
  const $=load(html);$('title').text(text(data.title));$('meta[name="description"]').attr('content',text(data.description));
+ // CMS content is authoritative: removed sections and text must not fall back to templates.
+ const sectionIds=new Set(data.sections.map(s=>s.id));
+ $('main .output-block').each((i,el)=>{
+  const id=$(el).attr('id')||`output-${i+1}`;
+  if(!sectionIds.has(id)){
+   $(el).remove();
+   $('[data-local-section]').filter((_,link)=>$(link).attr('data-local-section')===id).remove();
+  }
+ });
+ const textIds=new Set(data.sections.flatMap(s=>(s.texts||[]).map(t=>t.id)));
+ $('[data-cms-node]').each((_,el)=>{
+  (el.children||[]).forEach((node,i)=>{
+   if(node.type==='text'&&!textIds.has($(el).attr('data-cms-node')+'-t'+i))node.data='';
+  });
+ });
  for(const section of data.sections){
-  for(const item of section.texts){
+  for(const item of (section.texts||[])){
    const match=/^(n\d+)-t(\d+)$/.exec(item.id);if(!match)throw Error('Invalid text identifier');
    const parent=$(`[data-cms-node="${match[1]}"]`);const node=parent[0]?.children[Number(match[2])];
    if(parent.length!==1||node?.type!=='text')throw Error('Missing text field '+item.id);
@@ -48,6 +63,8 @@ function renderPage(html,data,team,lang){
    if(item.src){if(el.is('img'))el.attr({src:url(item.src,true),alt:text(item.alt||'')});else el.empty().append($('<img class="cms-replacement-logo">').attr({src:url(item.src,true),alt:item.alt||item.label,loading:'lazy'}));}
   }
  }
+ // Remove empty paragraph wrappers after all text indices have been processed.
+ $('p[data-cms-node]').each((_,el)=>{if(!$(el).text().trim()&&!$(el).find('img,svg,button,input').length)$(el).remove();});
  renderTeam($,team,lang);
  // Keep the explorer's section headings synchronized with the edited page headings.
  $('.output-block').each((_,b)=>{const h=$(b).find('h1,h2').first().text().trim();const id=$(b).attr('id');if(h&&id)$(`[data-local-section="${id}"]`).text(h);});

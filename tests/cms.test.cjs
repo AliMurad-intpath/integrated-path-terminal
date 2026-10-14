@@ -90,3 +90,29 @@ test('page and team editor previews resolve draft images through the CMS asset s
  assert.ok(JSON.stringify(previews.team({entry:teamEntry,getAsset})).includes('blob:uploaded-photo'));
  assert.equal(paths.length,2);
 });
+test('all public pages have unique metadata, reciprocal languages and valid structured data',()=>{
+ const pages=json('scripts/pages.json'),titles=new Set(),descriptions=new Set();
+ for(const page of pages){
+  const $=load(read('dist/'+page.file));const canonical='https://int-path.com/'+page.file.replace(/index\.html$/,'');
+  assert.equal($('link[rel="canonical"]').length,1);assert.equal($('link[rel="canonical"]').attr('href'),canonical);
+  assert.equal($('link[hreflang="'+page.lang+'"]').attr('href'),canonical);
+  assert.equal($('link[rel="alternate"]').length,3);
+  assert.equal($('meta[property="og:url"]').attr('content'),canonical);
+  assert.equal($('meta[name="robots"]').attr('content'),'index, follow, max-image-preview:large');
+  const graph=JSON.parse($('script[type="application/ld+json"]').text());assert.equal(graph['@graph'][2].url,canonical);
+  titles.add($('title').text());descriptions.add($('meta[name="description"]').attr('content'));
+  assert.equal($('a[href*="?v="]').filter((_,a)=>!/^https?:/.test($(a).attr('href'))&&!$(a).attr('href').startsWith('assets/')).length,0);
+ }
+ assert.equal(titles.size,12);assert.equal(descriptions.size,12);
+ const xml=load(read('dist/sitemap.xml'),{xmlMode:true});assert.equal(xml('url').length,12);
+ for(const page of pages)assert.ok(xml('loc').map((_,el)=>xml(el).text()).get().includes('https://int-path.com/'+page.file.replace(/index\.html$/,'')));
+ assert.ok(read('dist/robots.txt').includes('Sitemap: https://int-path.com/sitemap.xml'));
+});
+test('preview builds carry noindex and structured data escapes edited text',()=>{
+ const {enhance}=require('../scripts/seo.cjs'),pages=json('scripts/pages.json');
+ const $=load('<html><head><title>Safe</title><meta name="description"></head><body></body></html>');
+ $('title').text('</script><script>alert(1)</script>');enhance($,pages[0],pages,{preview:true});
+ assert.equal($('meta[name="robots"]').attr('content'),'noindex, nofollow');
+ assert.ok(!$('script[data-seo]').text().includes('</script>'));
+ assert.equal(JSON.parse($('script[data-seo]').text())['@graph'][2].name,'</script><script>alert(1)</script>');
+});

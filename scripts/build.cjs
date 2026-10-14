@@ -1,4 +1,5 @@
 const fs=require('node:fs'),path=require('node:path'),{load}=require('cheerio');
+const {enhance,writeDiscovery}=require('./seo.cjs');
 const ROOT=path.resolve(__dirname,'..');
 function url(value,image=false){
  if(typeof value!=='string'||/[\u0000-\u0020\\]/.test(value)||value.startsWith('//')||/^(?:javascript|data|vbscript):/i.test(value))throw Error('Invalid URL: '+value);
@@ -87,9 +88,13 @@ function build(root=ROOT){
  fs.writeFileSync(path.join(out,'style.css'),source);
  fs.writeFileSync(path.join(out,'cms-theme.css'),css);
  const indexes={en:[],ar:[]};
- for(const page of json('scripts/pages.json')){
+ const pages=json('scripts/pages.json');
+ const seoOptions={preview:!!process.env.CONTEXT&&process.env.CONTEXT!=='production'};
+ writeDiscovery(out,pages,seoOptions);
+ for(const page of pages){
   let html=renderPage(read('templates/'+page.file),json('content/pages/'+page.key+'.json'),team,page.lang);
   const $=load(html);
+  enhance($,page,pages,seoOptions);
   fs.mkdirSync(path.dirname(path.join(out,page.file)),{recursive:true});fs.writeFileSync(path.join(out,page.file),$.html());
   $('.output-block').each((i,el)=>{const section=$(el),slug=page.file.replace(/^ar\//,'').replace(/index.html$/,'');indexes[page.lang].push({page:slug.replace(/\/$/,'')||'home',title:section.find('h1,h2').first().text(),text:section.text().replace(/\s+/g,' ').trim(),path:slug+'#'+(section.attr('id')||`output-${i+1}`)});});
  }

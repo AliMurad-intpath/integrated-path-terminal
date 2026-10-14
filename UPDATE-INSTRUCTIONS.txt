@@ -1,7 +1,0 @@
-Full website source based on integrated-path-terminal-main-3.zip, including saved CMS content, uploaded photos, and the CMS publishing fix.
-
-Upload these contents to the repository root. Netlify build command: npm run build. Publish directory: dist. Functions directory: netlify/functions. Existing environment variables stay as configured in Netlify.
-
-If you made additional CMS edits after downloading main-3.zip, preserve the newer content/ and assets/uploads/ files from GitHub instead of overwriting them with this snapshot.
-
-The dist folder is intentionally excluded: Netlify generates it during the build. Nine local checks passed before packaging.
